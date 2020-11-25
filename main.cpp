@@ -1,6 +1,12 @@
 #include <iostream>
+#include "Wave.h"
+
+using namespace std;
 
 int main() {
-	std::cout << "Hello, World!" << std::endl;
+	/**
+	 * Ici faire les tests
+	 */
+	Wave file = Wave();
 	return 0;
 }
