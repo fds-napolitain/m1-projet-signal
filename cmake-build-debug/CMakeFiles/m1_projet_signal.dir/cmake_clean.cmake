@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/m1_projet_signal.dir/Signal.cpp.obj"
   "CMakeFiles/m1_projet_signal.dir/Wave.cpp.obj"
   "CMakeFiles/m1_projet_signal.dir/main.cpp.obj"
   "libm1_projet_signal.dll.a"

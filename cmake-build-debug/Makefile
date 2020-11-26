@@ -142,6 +142,33 @@ m1_projet_signal/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\m1_projet_signal.dir\build.make CMakeFiles/m1_projet_signal.dir/build
 .PHONY : m1_projet_signal/fast
 
+Signal.obj: Signal.cpp.obj
+
+.PHONY : Signal.obj
+
+# target to build an object file
+Signal.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\m1_projet_signal.dir\build.make CMakeFiles/m1_projet_signal.dir/Signal.cpp.obj
+.PHONY : Signal.cpp.obj
+
+Signal.i: Signal.cpp.i
+
+.PHONY : Signal.i
+
+# target to preprocess a source file
+Signal.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\m1_projet_signal.dir\build.make CMakeFiles/m1_projet_signal.dir/Signal.cpp.i
+.PHONY : Signal.cpp.i
+
+Signal.s: Signal.cpp.s
+
+.PHONY : Signal.s
+
+# target to generate assembly for a file
+Signal.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\m1_projet_signal.dir\build.make CMakeFiles/m1_projet_signal.dir/Signal.cpp.s
+.PHONY : Signal.cpp.s
+
 Wave.obj: Wave.cpp.obj
 
 .PHONY : Wave.obj
@@ -205,6 +232,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... m1_projet_signal
+	@echo ... Signal.obj
+	@echo ... Signal.i
+	@echo ... Signal.s
 	@echo ... Wave.obj
 	@echo ... Wave.i
 	@echo ... Wave.s
