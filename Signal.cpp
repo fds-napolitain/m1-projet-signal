@@ -1,5 +1,14 @@
 #include <cmath>
 #include "Signal.h"
+#include "Wave.h"
+#include "utils.h"
+
+Signal::Signal(char *path) {
+	unsigned char* data8 = NULL;
+	Wave wave(data8);
+	wave.read(path);
+	wave.getData8(&Signal::signal, sizeof(Signal::signal))
+}
 
 void Signal::dft(double *signal, double *a, double *b, int N) {
 	for (int k = 0; k < N; k++) {
@@ -25,7 +34,3 @@ void Signal::idft(double *signal, double *a, double *b, int N) {
 double Signal::incrementSemiTone(double freq, double i) {
 	return freq * pow((pow(2, 1/12)), i);
 }
-
-
-
-

@@ -12,7 +12,9 @@ private:
 	double* a;
 	double* b;
 public:
-/**
+	Signal(char *path);
+
+	/**
 	 * Pour plus d'info sur la transformation de fourier voir :
 	 * https://betterexplained.com/articles/an-interactive-guide-to-the-fourier-transform/
 	 * @param signal tableau d'amplitudes du signal

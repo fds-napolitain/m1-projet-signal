@@ -95,6 +95,12 @@
 		<Unit filename="C:/Users/maxim/CLionProjects/m1-projet-signal/main.cpp">
 			<Option target="m1_projet_signal"/>
 		</Unit>
+		<Unit filename="C:/Users/maxim/CLionProjects/m1-projet-signal/utils.cpp">
+			<Option target="m1_projet_signal"/>
+		</Unit>
+		<Unit filename="C:/Users/maxim/CLionProjects/m1-projet-signal/utils.h">
+			<Option target="m1_projet_signal"/>
+		</Unit>
 		<Unit filename="C:/Users/maxim/CLionProjects/m1-projet-signal/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
