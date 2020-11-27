@@ -7,7 +7,7 @@ Signal::Signal() {
 }
 
 void Signal::read_signal(char *path) {
-	unsigned char* data8 = NULL;
+	unsigned char* data8;
 	Wave wave = Wave();
 	wave.read(path);
 	wave.getData8(&data8, &(Signal::N));
@@ -20,7 +20,9 @@ void Signal::read_signal(char *path) {
 }
 
 void Signal::write_signal(char *path) {
-
+	unsigned char* data8;
+	Normalisation(Signal::signal, Signal::N);
+	Wave wave = Wave();
 }
 
 void Signal::dft() {

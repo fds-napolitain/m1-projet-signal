@@ -15,10 +15,6 @@ int main() {
 		printf("%f|", signal1.signal[i]);
 	}
 	signal1.dft();
-	printf("\n");
-	for (int i = 0; i < sizeof(signal1.a); ++i) {
-		printf("%f|", signal1.a[i]);
-	}
 	signal1.idft();
 	printf("\n");
 	for (int i = 0; i < sizeof(signal1.signal); ++i) {
