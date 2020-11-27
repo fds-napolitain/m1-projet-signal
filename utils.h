@@ -15,4 +15,6 @@ unsigned char doubleToUnsignedChar(double signal);
  */
 double unsignedCharToDouble(unsigned char data8);
 
+void Normalisation(double *signal, int N);
+
 #endif //M1_PROJET_SIGNAL_UTILS_H

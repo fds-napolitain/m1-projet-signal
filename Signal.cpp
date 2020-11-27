@@ -3,38 +3,56 @@
 #include "Wave.h"
 #include "utils.h"
 
-Signal::Signal(char *path) {
-	unsigned char* data8 = NULL;
-	Wave wave(data8);
-	wave.read(path);
-	wave.getData8(&Signal::signal, sizeof(Signal::signal))
+Signal::Signal() {
 }
 
-void Signal::dft(double *signal, double *a, double *b, int N) {
+void Signal::read_signal(char *path) {
+	unsigned char* data8 = NULL;
+	Wave wave = Wave();
+	wave.read(path);
+	wave.getData8(&data8, &(Signal::N));
+	Signal::signal = (double*) malloc(N*sizeof(double));
+	Signal::a = (double*) malloc(N*sizeof(double));
+	Signal::b = (double*) malloc(N*sizeof(double));
+	for (int i = 0; i < N; ++i) {
+		Signal::signal[i] = (double) data8[i]/127.5 - 1.0;
+	}
+}
+
+void Signal::write_signal(char *path) {
+
+}
+
+void Signal::dft() {
+	double deuxPiN = 2.0*M_PI/(double)N;
+	double omega, theta = 0.0;
 	for (int k = 0; k < N; k++) {
-		a[k] = 0;
-		b[k] = 0;
+		omega = deuxPiN * (double) k;
+		a[k] = 0.0;
+		b[k] = 0.0;
 		for (int n = 0; n < N; n++) {
-			a[k] += signal[n]*cos(2.0*M_PI*((double)k*(double)n/(double)N));
-			b[k] -= signal[n]*sin(2.0*M_PI*((double)k*(double)n/(double)N));
+			theta = omega * (double) n;
+			a[k] += signal[n] * cos(theta);
+			b[k] -= signal[n] * sin(theta);
 		}
 	}
 }
 
-/**
- *	This fft has been proposed by Paul Bourke
- *	http://paulbourke.net/miscellaneous/dft/
- *	This computes an in-place complex-to-complex fft
- *	x and y are the real and imaginary arrays of 2^m points.
- *	dir =  1 gives forward transform
- *	dir = -1 gives reverse transform
- *	You MUST compute first the value m such that
- *	2^(m-1) < n (size of your signal) <= 2^m
- *	allocate a new signal of nm=2^m values
- *	then fill the n first values of this new signal
- *   with your signal and fill the rest with 0
- *	WARNING : you must pass m, not nm !!!
- */
+void Signal::idft() {
+	double deuxPiN = 2.0*M_PI/(double)N;
+	double omega, theta = 0.0;
+	for (int n = 0; n < N; n++) {
+		omega = deuxPiN * (double) n;
+		signal[n] = 0.0;
+		for (int k = 0; k < N; k++) {
+			theta = omega * (double) k;
+			signal[n] += a[k]*cos(theta) - b[k]*sin(theta);
+		}
+		signal[n] = 1.0/(double)N*signal[n];
+	}
+}
+
+// TODO: pas encore adapté pour ma class Signal
 int Signal::fft(int dir, int m, double *x, double *y) {
 	int n,i,i1,j,k,i2,l,l1,l2;
 	double c1,c2,tx,ty,t1,t2,u1,u2,z;
@@ -98,16 +116,6 @@ int Signal::fft(int dir, int m, double *x, double *y) {
 		}
 	}
 	return(1);
-}
-
-void Signal::idft(double *signal, double *a, double *b, int N) {
-	for (int n = 0; n < N; n++) {
-		signal[n] = 0;
-		for (int k = 0; k < N; k++) {
-			signal[n] += a[k]*cos(2*M_PI*((double)k*(double)n/(double)N)) - b[k]*sin(2*M_PI*((double)k*(double)n/(double)N));
-		}
-		signal[n] = 1.0/N*signal[n];
-	}
 }
 
 double Signal::incrementSemiTone(double freq, double i) {
