@@ -40,6 +40,8 @@ public:
 	 * @return freq fréquence en hertz
 	 */
 	double incrementSemiTone(double freq, double i);
+
+	int fft(int dir, int m, double *x, double *y);
 };
 
 

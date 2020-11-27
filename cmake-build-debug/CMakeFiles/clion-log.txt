@@ -1,4 +1,4 @@
-C:\Users\maxim\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\202.7660.37\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\maxim\CLionProjects\m1-projet-signal
+C:\Users\maxim\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\202.8194.17\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\maxim\CLionProjects\m1-projet-signal
 -- Configuring done
 -- Generating done
 -- Build files have been written to: C:/Users/maxim/CLionProjects/m1-projet-signal/cmake-build-debug
