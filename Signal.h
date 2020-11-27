@@ -1,10 +1,6 @@
 #ifndef M1_PROJET_SIGNAL_SIGNAL_H
 #define M1_PROJET_SIGNAL_SIGNAL_H
 
-#define CHANNELS_NB 1
-#define FREQ_ECHANTILLONAGE 44100
-#define FREQ_A4 440
-
 class Signal {
 public:
 	int N;
@@ -13,6 +9,8 @@ public:
 	double* b; // partie imaginaire
 
 	Signal();
+	Signal(int N);
+	Signal(const Signal&) noexcept;
 
 	void read_signal(char *path);
 
@@ -51,7 +49,7 @@ public:
 	 * @param i nombre de demi ton (positif ou négatif)
 	 * @return freq fréquence en hertz
 	 */
-	double incrementSemiTone(double freq, double i);
+	void incrementSemiTone(double i);
 };
 
 

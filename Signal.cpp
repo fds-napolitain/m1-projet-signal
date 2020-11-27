@@ -6,6 +6,19 @@
 Signal::Signal() {
 }
 
+Signal::Signal(int N) {
+	Signal::N = N;
+}
+
+Signal::Signal(const Signal &oldSignal) noexcept {
+	Signal newSignal = Signal(oldSignal.N);
+	for (int i = 0; i < sizeof(oldSignal.N); ++i) {
+		newSignal.signal[i] = oldSignal.signal[i];
+		newSignal.a[i] = oldSignal.a[i];
+		newSignal.b[i] = oldSignal.b[i];
+	}
+}
+
 void Signal::read_signal(char *path) {
 	unsigned char* data8;
 	Wave wave = Wave();
@@ -26,7 +39,7 @@ void Signal::write_signal(char *path) {
 }
 
 void Signal::dft() {
-	double deuxPiN = 2.0*M_PI/(double)N;
+	double deuxPiN = 2.0 * M_PI / (double) N;
 	double omega, theta = 0.0;
 	for (int k = 0; k < N; k++) {
 		omega = deuxPiN * (double) k;
@@ -41,16 +54,15 @@ void Signal::dft() {
 }
 
 void Signal::idft() {
-	double deuxPiN = 2.0*M_PI/(double)N;
+	double deuxPiN = 2.0 * M_PI / (double) N;
 	double omega, theta = 0.0;
 	for (int n = 0; n < N; n++) {
 		omega = deuxPiN * (double) n;
 		signal[n] = 0.0;
 		for (int k = 0; k < N; k++) {
 			theta = omega * (double) k;
-			signal[n] += a[k]*cos(theta) - b[k]*sin(theta);
+			signal[n] += 1 / (double) N * (a[k]*cos(theta) - b[k]*sin(theta));
 		}
-		signal[n] = 1.0/(double)N*signal[n];
 	}
 }
 
@@ -120,6 +132,11 @@ int Signal::fft(int dir, int m, double *x, double *y) {
 	return(1);
 }
 
+/*
 double Signal::incrementSemiTone(double freq, double i) {
 	return freq * pow((pow(2, 1/12)), i);
+}
+*/
+void Signal::incrementSemiTone(double i) {
+
 }
