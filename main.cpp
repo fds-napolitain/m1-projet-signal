@@ -10,7 +10,7 @@ int main() {
 	 * Création du La 440
 	 */
 	Signal la440 = Signal(6.0);
-	la440.addTone(FREQ_A4, 1.0, 0.0, 6.0);
+	la440.addTone(FREQ_A4, 1.0, 1.0, 5.0);
 	la440.write_signal((char*) "../sons/la440.wav");
 
 	/**
@@ -32,6 +32,6 @@ int main() {
 	/**
 	 * TODO: Création du Do majeur
 	 */
-	Signal C4Majeur = Signal();
+	//Signal C4Majeur = Signal();
 	return 0;
 }
