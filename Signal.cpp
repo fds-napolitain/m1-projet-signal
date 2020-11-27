@@ -143,15 +143,11 @@ int Signal::fft(int dir, int m, double *x, double *y) {
 }
 
 void Signal::addTone(double freq, double amplitude, double start, double end) {
-	double tone = amplitude * 2.0 * M_PI * FREQ_A4 / (double) FREQ_ECHANTILLONNAGE;
+	double tone = amplitude * 2.0 * M_PI * freq / (double) FREQ_ECHANTILLONNAGE;
 	int fin = end*FREQ_ECHANTILLONNAGE;
 	for (int i = start*FREQ_ECHANTILLONNAGE; i < fin; ++i) {
 		signal[i] = sin((double) i * tone);
 	}
 }
 
-void Signal::incrementSemiTone(double i) {
-	// freq * pow((pow(2, 1/12)), i)
-
-}
 

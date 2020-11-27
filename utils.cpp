@@ -1,3 +1,5 @@
+#include <math.h>
+#include <cstdio>
 #include "utils.h"
 
 unsigned char normalize(double signal) {
@@ -21,4 +23,8 @@ void Normalisation(double *signal, int N) {
 		(*pt) = ((*pt) - mini) * delta ;
 		pt++ ;
 	}
+}
+
+double incrementSemiTone(double freq, double i) {
+	return freq * pow(pow(2.0, (1.0/12.0)), i);
 }

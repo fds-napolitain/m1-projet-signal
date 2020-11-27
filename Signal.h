@@ -65,15 +65,14 @@ public:
 	 */
 	int fft(int dir, int m, double *x, double *y);
 
-	void addTone(double freq, double amplitude, double start, double end);
-
 	/**
-	 * Renvoit une note avec une tonalité changée (par demi ton)
-	 * @param freq fréquence en hertz
-	 * @param i nombre de demi ton (positif ou négatif)
-	 * @return freq fréquence en hertz
+	 * Rajouter une note à un signal à partir d'une fréquence, d'une amplitude, d'un début et d'une fin.
+	 * @param freq fréquence entre 0 et FREQ_ECHANTILLONNAGE
+	 * @param amplitude entre -1 et 1
+	 * @param start entre 0 et end
+	 * @param end entre start et duree
 	 */
-	void incrementSemiTone(double i);
+	void addTone(double freq, double amplitude, double start, double end);
 };
 
 
