@@ -3,7 +3,9 @@
 
 class Signal {
 public:
-	int N = 0;
+	const double FREQ_ECHANTILLONNAGE = 44100;
+	int N = 0; // taille du signal (duree * FREQ_ECHANTILLONNAGE
+	int duree; // durée du signal
 	double* signal; // tableau d'amplitudes sur le temps
 	double* a; // partie réelle
 	double* b; // partie imaginaire
@@ -16,14 +18,19 @@ public:
 
 	/**
 	 * Constructeur utilisé pour créer un Signal (pour ensuite l'écrire dans un fichier).
-	 * @param N taille du signal à créer
+	 * @param duree durée du signal à créer (échantillonnage fixe)
 	 */
-	Signal(int N);
+	Signal(int duree);
 
 	/**
 	 * Constructeur par recopie d'un Signal
 	 */
 	Signal(const Signal&) noexcept;
+
+	/**
+	 * Destructor pour malloc
+	 */
+	virtual ~Signal();
 
 	/**
 	 * Ecrire un signal dans un fichier.
@@ -57,6 +64,8 @@ public:
 	 *	WARNING : you must pass m, not nm !!!
 	 */
 	int fft(int dir, int m, double *x, double *y);
+
+	void addTone(double freq, double amplitude, double start, double end);
 
 	/**
 	 * Renvoit une note avec une tonalité changée (par demi ton)

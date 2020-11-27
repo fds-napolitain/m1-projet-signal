@@ -16,8 +16,9 @@ Signal::Signal(char *path) {
 	}
 }
 
-Signal::Signal(int N) {
-	Signal::N = N;
+Signal::Signal(int duree) {
+	Signal::N = duree * FREQ_ECHANTILLONNAGE;
+	Signal::duree = duree;
 	Signal::signal = (double*) malloc(N*sizeof(double));
 	Signal::a = (double*) malloc(N*sizeof(double));
 	Signal::b = (double*) malloc(N*sizeof(double));
@@ -32,12 +33,18 @@ Signal::Signal(const Signal &oldSignal) noexcept {
 	}
 }
 
+Signal::~Signal() {
+	free(Signal::signal);
+	free(Signal::a);
+	free(Signal::b);
+}
+
 void Signal::write_signal(char *path) {
 	unsigned char data8[N];
 	for (int i = 0; i < N; ++i) {
 		data8[i] = normalize(Signal::signal[i]);
 	}
-	Wave wave = Wave(data8, Signal::N, 1, FREQ_ECHANTILLONAGE);
+	Wave wave = Wave(data8, Signal::N, 1, FREQ_ECHANTILLONNAGE);
 	wave.write(path);
 }
 
@@ -106,8 +113,8 @@ int Signal::fft(int dir, int m, double *x, double *y) {
 		l2 <<= 1;
 		u1 = 1.0;
 		u2 = 0.0;
-		for (j=0;j<l1;j++) {
-			for (i=j;i<n;i+=l2) {
+		for (j=0; j<l1; j++) {
+			for (i=j; i<n; i+=l2) {
 				i1 = i + l1;
 				t1 = u1 * x[i1] - u2 * y[i1];
 				t2 = u1 * y[i1] + u2 * x[i1];
@@ -135,7 +142,15 @@ int Signal::fft(int dir, int m, double *x, double *y) {
 	return(1);
 }
 
+void Signal::addTone(double freq, double amplitude, double start, double end) {
+	double tone = amplitude * 2.0 * M_PI * FREQ_A4 / (double) FREQ_ECHANTILLONNAGE;
+	for (int i = start*FREQ_ECHANTILLONNAGE; i < end*FREQ_ECHANTILLONNAGE; ++i) {
+		signal[i] = sin((double) i * tone);
+	}
+}
+
 void Signal::incrementSemiTone(double i) {
 	// freq * pow((pow(2, 1/12)), i)
 
 }
+

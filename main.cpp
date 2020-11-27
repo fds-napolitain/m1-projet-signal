@@ -9,12 +9,8 @@ int main() {
 	/**
 	 * Création du La 440
 	 */
-	int N = FREQ_ECHANTILLONAGE*6;
-	Signal la440 = Signal(N);
-	double note = 2.0 * M_PI * FREQ_A4 / (double) FREQ_ECHANTILLONAGE;
-	for (int i = 0; i < N; ++i) {
-		la440.signal[i] = sin((double) i * note);
-	}
+	Signal la440 = Signal(6.0);
+	la440.addTone(FREQ_A4, 1.0, 0.0, 6.0);
 	la440.write_signal((char*) "../sons/la440.wav");
 
 	/**
@@ -34,16 +30,8 @@ int main() {
 	}*/
 
 	/**
-	 * Création du Do majeur
+	 * TODO: Création du Do majeur
 	 */
-/*	Signal A4 = Signal();
-	A4.read_signal("../sons/la440.wav");
-	Signal C4 = Signal(A4);
-	C4.incrementSemiTone(-9);
-	Signal E4 = Signal(A4);
-	E4.incrementSemiTone(-5);
-	Signal G4 = Signal(A4);
-	G4.incrementSemiTone(-2);
 	Signal C4Majeur = Signal();
-	return 0;*/
+	return 0;
 }
