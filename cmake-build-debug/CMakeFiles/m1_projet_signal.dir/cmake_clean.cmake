@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/m1_projet_signal.dir/Signal.cpp.obj"
+  "CMakeFiles/m1_projet_signal.dir/Tone.cpp.obj"
   "CMakeFiles/m1_projet_signal.dir/Wave.cpp.obj"
   "CMakeFiles/m1_projet_signal.dir/main.cpp.obj"
   "CMakeFiles/m1_projet_signal.dir/utils.cpp.obj"

@@ -169,6 +169,33 @@ Signal.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\m1_projet_signal.dir\build.make CMakeFiles/m1_projet_signal.dir/Signal.cpp.s
 .PHONY : Signal.cpp.s
 
+Tone.obj: Tone.cpp.obj
+
+.PHONY : Tone.obj
+
+# target to build an object file
+Tone.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\m1_projet_signal.dir\build.make CMakeFiles/m1_projet_signal.dir/Tone.cpp.obj
+.PHONY : Tone.cpp.obj
+
+Tone.i: Tone.cpp.i
+
+.PHONY : Tone.i
+
+# target to preprocess a source file
+Tone.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\m1_projet_signal.dir\build.make CMakeFiles/m1_projet_signal.dir/Tone.cpp.i
+.PHONY : Tone.cpp.i
+
+Tone.s: Tone.cpp.s
+
+.PHONY : Tone.s
+
+# target to generate assembly for a file
+Tone.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\m1_projet_signal.dir\build.make CMakeFiles/m1_projet_signal.dir/Tone.cpp.s
+.PHONY : Tone.cpp.s
+
 Wave.obj: Wave.cpp.obj
 
 .PHONY : Wave.obj
@@ -262,6 +289,9 @@ help:
 	@echo ... Signal.obj
 	@echo ... Signal.i
 	@echo ... Signal.s
+	@echo ... Tone.obj
+	@echo ... Tone.i
+	@echo ... Tone.s
 	@echo ... Wave.obj
 	@echo ... Wave.i
 	@echo ... Wave.s

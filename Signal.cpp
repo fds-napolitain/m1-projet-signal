@@ -149,5 +149,3 @@ void Signal::addTone(double freq, double amplitude, double start, double end) {
 		signal[i] = sin((double) i * tone);
 	}
 }
-
-

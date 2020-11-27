@@ -2,6 +2,7 @@
 #include <math.h>
 #include "Signal.h"
 #include "utils.h"
+#include "Tone.h"
 
 using namespace std;
 
@@ -33,12 +34,12 @@ int main() {
 	 * TODO: Création du Do majeur
 	 */
 	Signal C4Majeur = Signal(3.0);
-	double C4 = incrementSemiTone(FREQ_A4, -9);
-	double E4 = incrementSemiTone(FREQ_A4, -5);
-	double G4 = incrementSemiTone(FREQ_A4, -2);
-	C4Majeur.addTone(C4, 1.0, 0, 3);
-	C4Majeur.addTone(E4, 1.0, 0, 3);
-	C4Majeur.addTone(G4, 1.0, 0, 3);
+	Tone C4 = Tone("C4");
+	Tone E4 = Tone("E4");
+	Tone G4 = Tone("G4");
+	C4Majeur.addTone(C4.freq, 1.0, 0, 3);
+	C4Majeur.addTone(E4.freq, 1.0, 0, 3);
+	C4Majeur.addTone(G4.freq, 1.0, 0, 3);
 	C4Majeur.write_signal((char*) "../sons/doMajeur.wav");
 
 	return 0;

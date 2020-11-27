@@ -24,7 +24,3 @@ void Normalisation(double *signal, int N) {
 		pt++ ;
 	}
 }
-
-double incrementSemiTone(double freq, double i) {
-	return freq * pow(pow(2.0, (1.0/12.0)), i);
-}

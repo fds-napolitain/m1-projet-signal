@@ -6,10 +6,14 @@ CMakeFiles/m1_projet_signal.dir/Signal.cpp.obj: ../Signal.h
 CMakeFiles/m1_projet_signal.dir/Signal.cpp.obj: ../Wave.h
 CMakeFiles/m1_projet_signal.dir/Signal.cpp.obj: ../utils.h
 
+CMakeFiles/m1_projet_signal.dir/Tone.cpp.obj: ../Tone.cpp
+CMakeFiles/m1_projet_signal.dir/Tone.cpp.obj: ../Tone.h
+
 CMakeFiles/m1_projet_signal.dir/Wave.cpp.obj: ../Wave.cpp
 CMakeFiles/m1_projet_signal.dir/Wave.cpp.obj: ../Wave.h
 
 CMakeFiles/m1_projet_signal.dir/main.cpp.obj: ../Signal.h
+CMakeFiles/m1_projet_signal.dir/main.cpp.obj: ../Tone.h
 CMakeFiles/m1_projet_signal.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/m1_projet_signal.dir/main.cpp.obj: ../utils.h
 

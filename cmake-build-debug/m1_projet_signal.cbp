@@ -86,6 +86,12 @@
 		<Unit filename="C:/Users/maxim/CLionProjects/m1-projet-signal/Signal.h">
 			<Option target="m1_projet_signal"/>
 		</Unit>
+		<Unit filename="C:/Users/maxim/CLionProjects/m1-projet-signal/Tone.cpp">
+			<Option target="m1_projet_signal"/>
+		</Unit>
+		<Unit filename="C:/Users/maxim/CLionProjects/m1-projet-signal/Tone.h">
+			<Option target="m1_projet_signal"/>
+		</Unit>
 		<Unit filename="C:/Users/maxim/CLionProjects/m1-projet-signal/Wave.cpp">
 			<Option target="m1_projet_signal"/>
 		</Unit>

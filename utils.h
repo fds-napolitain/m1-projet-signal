@@ -17,12 +17,4 @@ unsigned char normalize(double signal);
  */
 void Normalisation(double *signal, int N);
 
-/**
- * Renvoit une note avec une tonalité changée (par demi ton)
- * @param freq fréquence en hertz
- * @param i nombre de demi ton (positif ou négatif)
- * @return freq fréquence en hertz
- */
-double incrementSemiTone(double freq, double i);
-
 #endif //M1_PROJET_SIGNAL_UTILS_H
