@@ -1,25 +1,9 @@
-#include <cmath>
+#include <math.h>
 #include "Signal.h"
 #include "Wave.h"
 #include "utils.h"
 
-Signal::Signal() {
-}
-
-Signal::Signal(int N) {
-	Signal::N = N;
-}
-
-Signal::Signal(const Signal &oldSignal) noexcept {
-	Signal newSignal = Signal(oldSignal.N);
-	for (int i = 0; i < sizeof(oldSignal.N); ++i) {
-		newSignal.signal[i] = oldSignal.signal[i];
-		newSignal.a[i] = oldSignal.a[i];
-		newSignal.b[i] = oldSignal.b[i];
-	}
-}
-
-void Signal::read_signal(char *path) {
+Signal::Signal(char *path) {
 	unsigned char* data8;
 	Wave wave = Wave();
 	wave.read(path);
@@ -32,10 +16,29 @@ void Signal::read_signal(char *path) {
 	}
 }
 
+Signal::Signal(int N) {
+	Signal::N = N;
+	Signal::signal = (double*) malloc(N*sizeof(double));
+	Signal::a = (double*) malloc(N*sizeof(double));
+	Signal::b = (double*) malloc(N*sizeof(double));
+}
+
+Signal::Signal(const Signal &oldSignal) noexcept {
+	Signal newSignal = Signal(oldSignal.N);
+	for (int i = 0; i < sizeof(oldSignal.N); ++i) {
+		newSignal.signal[i] = oldSignal.signal[i];
+		newSignal.a[i] = oldSignal.a[i];
+		newSignal.b[i] = oldSignal.b[i];
+	}
+}
+
 void Signal::write_signal(char *path) {
-	unsigned char* data8;
-	Normalisation(Signal::signal, Signal::N);
-	Wave wave = Wave();
+	unsigned char data8[N];
+	for (int i = 0; i < N; ++i) {
+		data8[i] = normalize(Signal::signal[i]);
+	}
+	Wave wave = Wave(data8, Signal::N, 1, FREQ_ECHANTILLONAGE);
+	wave.write(path);
 }
 
 void Signal::dft() {
@@ -132,11 +135,7 @@ int Signal::fft(int dir, int m, double *x, double *y) {
 	return(1);
 }
 
-/*
-double Signal::incrementSemiTone(double freq, double i) {
-	return freq * pow((pow(2, 1/12)), i);
-}
-*/
 void Signal::incrementSemiTone(double i) {
+	// freq * pow((pow(2, 1/12)), i)
 
 }

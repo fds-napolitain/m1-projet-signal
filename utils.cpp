@@ -1,5 +1,9 @@
 #include "utils.h"
 
+unsigned char normalize(double signal) {
+	return (signal + 1.0) * 127.5;
+}
+
 void Normalisation(double *signal, int N) {
 	double mini, maxi, delta ;
 	double *pt, *fin ;

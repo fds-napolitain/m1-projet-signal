@@ -3,17 +3,32 @@
 
 class Signal {
 public:
-	int N;
+	int N = 0;
 	double* signal; // tableau d'amplitudes sur le temps
 	double* a; // partie réelle
 	double* b; // partie imaginaire
 
-	Signal();
+	/**
+	 * Consructeur utilisé pour lire un Signal à partir d'un fichier.
+	 * @param path chemin vers un fichier
+	 */
+	Signal(char* path);
+
+	/**
+	 * Constructeur utilisé pour créer un Signal (pour ensuite l'écrire dans un fichier).
+	 * @param N taille du signal à créer
+	 */
 	Signal(int N);
+
+	/**
+	 * Constructeur par recopie d'un Signal
+	 */
 	Signal(const Signal&) noexcept;
 
-	void read_signal(char *path);
-
+	/**
+	 * Ecrire un signal dans un fichier.
+	 * @param path chemin vers un fichier
+	 */
 	void write_signal(char *path);
 
 	/**

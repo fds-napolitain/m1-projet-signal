@@ -1,17 +1,21 @@
 #include <iostream>
+#include <math.h>
 #include "Signal.h"
+#include "utils.h"
 
 using namespace std;
-
-#define FREQ_ECHANTILLONAGE 44100.0
-#define FREQ_A4 440.0
 
 int main() {
 	/**
 	 * Création du La 440
 	 */
-	Signal la440 = Signal(FREQ_ECHANTILLONAGE*6);
-
+	int N = FREQ_ECHANTILLONAGE*6;
+	Signal la440 = Signal(N);
+	double note = 2.0 * M_PI * FREQ_A4 / (double) FREQ_ECHANTILLONAGE;
+	for (int i = 0; i < N; ++i) {
+		la440.signal[i] = sin((double) i * note);
+	}
+	la440.write_signal((char*) "../sons/la440.wav");
 
 	/**
 	 * Vérification de DFT() et IDFT()
