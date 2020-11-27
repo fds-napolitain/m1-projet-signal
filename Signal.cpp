@@ -143,9 +143,18 @@ int Signal::fft(int dir, int m, double *x, double *y) {
 }
 
 void Signal::addTone(double freq, double amplitude, double start, double end) {
-	double tone = amplitude * 2.0 * M_PI * freq / (double) FREQ_ECHANTILLONNAGE;
+	double tone = 2.0 * M_PI * freq / (double) FREQ_ECHANTILLONNAGE;
 	int fin = end*FREQ_ECHANTILLONNAGE;
 	for (int i = start*FREQ_ECHANTILLONNAGE; i < fin; ++i) {
 		signal[i] = sin((double) i * tone);
 	}
 }
+
+// TODO: essayer de le faire sur a et b plutot que signal (ne pas changer la meme chose)
+/*void Signal::addTone2(Tone tone, double start, double end) {
+	double tone = amplitude * 2.0 * M_PI * freq / (double) FREQ_ECHANTILLONNAGE;
+	int fin = end*FREQ_ECHANTILLONNAGE;
+	for (int i = start*FREQ_ECHANTILLONNAGE; i < fin; ++i) {
+		signal[i] = sin((double) i * tone);
+	}
+}*/

@@ -5,6 +5,8 @@
 class Tone {
 public:
 	double freq;
+	double amplitude;
+	double phase;
 
 	/**
 	 * Constructeur d'une note, avec freq comme attribut pour la fréquence.

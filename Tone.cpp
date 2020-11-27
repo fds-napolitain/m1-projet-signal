@@ -6,6 +6,8 @@ using namespace std;
 
 Tone::Tone(char *tone) {
 	freq = 440.0;
+	amplitude = 1.0;
+	phase = 0.0;
 	int coef = 0;
 	int multiplier[] = {-9, -7, -5, -4, -2, 0, 2};
 	char* current = (char*) "A4";
@@ -31,7 +33,6 @@ Tone::Tone(char *tone) {
 		coef += 12 * ((int) tone[1] - (int) current[1]);
 	}
 	current = tone;
-	cout << coef;
 	if (coef != 0) {
 		incrementSemiTone(freq, (double) coef);
 	}
