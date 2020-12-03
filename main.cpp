@@ -48,9 +48,19 @@ void doMajeur() {
 	C4Majeur.write_signal((char*) "../sons/doMajeur.wav");
 }
 
+/**
+ * Test du filtre passe bas sur la flute
+ */
+void passeBas() {
+	Signal signal1 = Signal((char*) "../sons/GammePiano.wav");
+	signal1.lowPass(3000, 1);
+	signal1.write_signal("../sons/GammePianoBas.wav");
+}
+
 int main() {
 //	la440();
 //	verifDft();
-	doMajeur();
+//	doMajeur();
+	passeBas();
 	return 0;
 }

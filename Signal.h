@@ -1,14 +1,16 @@
 #ifndef M1_PROJET_SIGNAL_SIGNAL_H
 #define M1_PROJET_SIGNAL_SIGNAL_H
 
+#include <vector>
+
 class Signal {
 public:
 	const double FREQ_ECHANTILLONNAGE = 44100;
 	int N = 0; // taille du signal (duree * FREQ_ECHANTILLONNAGE
 	int duree; // durée du signal
-	double* signal; // tableau d'amplitudes sur le temps
-	double* a; // partie réelle
-	double* b; // partie imaginaire
+	std::vector<double> signal; // tableau d'amplitudes sur le temps
+	std::vector<double> a; // partie réelle
+	std::vector<double> b; // partie imaginaire
 
 	/**
 	 * Consructeur utilisé pour lire un Signal à partir d'un fichier.
@@ -28,11 +30,6 @@ public:
 	Signal(const Signal&) noexcept;
 
 	/**
-	 * Destructor pour malloc
-	 */
-	virtual ~Signal();
-
-	/**
 	 * Ecrire un signal dans un fichier.
 	 * @param path chemin vers un fichier
 	 */
@@ -50,6 +47,13 @@ public:
 	void idft();
 
 	/**
+	 * Avoir m tel que 2**m == N
+	 * @param n
+	 * @return
+	 */
+	int next_pow2(int n);
+
+	/**
 	 *	This fft has been proposed by Paul Bourke
 	 *	http://paulbourke.net/miscellaneous/dft/
 	 *	This computes an in-place complex-to-complex fft
@@ -63,7 +67,7 @@ public:
 	 *   with your signal and fill the rest with 0
 	 *	WARNING : you must pass m, not nm !!!
 	 */
-	int fft(int dir, int m, double *x, double *y);
+	int fft(int dir);
 
 	/**
 	 * Rajouter une note à un signal à partir d'une fréquence, d'une amplitude, d'un début et d'une fin.

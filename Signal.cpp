@@ -1,4 +1,5 @@
 #include <math.h>
+#include <iostream>
 #include "Signal.h"
 #include "Wave.h"
 #include "utils.h"
@@ -8,9 +9,9 @@ Signal::Signal(char *path) {
 	Wave wave = Wave();
 	wave.read(path);
 	wave.getData8(&data8, &(Signal::N));
-	Signal::signal = (double*) malloc(N*sizeof(double));
-	Signal::a = (double*) malloc(N*sizeof(double));
-	Signal::b = (double*) malloc(N*sizeof(double));
+	Signal::signal.resize(N);
+	Signal::a.resize(N);
+	Signal::b.resize(N);
 	for (int i = 0; i < N; ++i) {
 		Signal::signal[i] = (double) data8[i]/127.5 - 1.0;
 	}
@@ -19,9 +20,9 @@ Signal::Signal(char *path) {
 Signal::Signal(int duree) {
 	Signal::N = duree * FREQ_ECHANTILLONNAGE;
 	Signal::duree = duree;
-	Signal::signal = (double*) malloc(N*sizeof(double));
-	Signal::a = (double*) malloc(N*sizeof(double));
-	Signal::b = (double*) malloc(N*sizeof(double));
+	Signal::signal.resize(N);
+	Signal::a.resize(N);
+	Signal::b.resize(N);
 }
 
 Signal::Signal(const Signal &oldSignal) noexcept {
@@ -31,12 +32,6 @@ Signal::Signal(const Signal &oldSignal) noexcept {
 		newSignal.a[i] = oldSignal.a[i];
 		newSignal.b[i] = oldSignal.b[i];
 	}
-}
-
-Signal::~Signal() {
-	free(Signal::signal);
-	free(Signal::a);
-	free(Signal::b);
 }
 
 void Signal::write_signal(char *path) {
@@ -49,6 +44,7 @@ void Signal::write_signal(char *path) {
 }
 
 void Signal::dft() {
+	std::cout << "Transformation discrète de fourier\n";
 	double deuxPiN = 2.0 * M_PI / (double) N;
 	double omega, theta = 0.0;
 	for (int k = 0; k < N; k++) {
@@ -64,6 +60,7 @@ void Signal::dft() {
 }
 
 void Signal::idft() {
+	std::cout << "Transformation discrète inverse de fourier\n";
 	double deuxPiN = 2.0 * M_PI / (double) N;
 	double omega, theta = 0.0;
 	for (int n = 0; n < N; n++) {
@@ -76,14 +73,35 @@ void Signal::idft() {
 	}
 }
 
+/* Renvoie m tel que 2^m >= n  */
+int Signal::next_pow2(int n) {
+
+	int next_pow2 = 1;
+	int m = 0;
+
+	while (next_pow2 < n) {
+		next_pow2 *= 2;
+		m++;
+	}
+
+	return m;
+}
+
 // TODO: pas encore adapté pour ma class Signal
-int Signal::fft(int dir, int m, double *x, double *y) {
+int Signal::fft(int dir) {
 	int n,i,i1,j,k,i2,l,l1,l2;
 	double c1,c2,tx,ty,t1,t2,u1,u2,z;
+	int m = next_pow2(signal.size());
+
 	/* Calculate the number of points */
-	n = 1;
-	for (i=0;i<m;i++)
-		n *= 2;
+	n = pow(2, m);
+	N = n;
+	signal.resize(N);
+	a.resize(N);
+	b.resize(N);
+	double *x = a.data();
+	double *y = b.data();
+
 	/* Do the bit reversal */
 	i2 = n >> 1;
 	j = 0;
@@ -104,7 +122,7 @@ int Signal::fft(int dir, int m, double *x, double *y) {
 		j += k;
 	}
 
-	/* Compute the fft */
+	/* Compute the FFT */
 	c1 = -1.0;
 	c2 = 0.0;
 	l2 = 1;
@@ -113,8 +131,8 @@ int Signal::fft(int dir, int m, double *x, double *y) {
 		l2 <<= 1;
 		u1 = 1.0;
 		u2 = 0.0;
-		for (j=0; j<l1; j++) {
-			for (i=j; i<n; i+=l2) {
+		for (j=0;j<l1;j++) {
+			for (i=j;i<n;i+=l2) {
 				i1 = i + l1;
 				t1 = u1 * x[i1] - u2 * y[i1];
 				t2 = u1 * y[i1] + u2 * x[i1];
@@ -132,6 +150,7 @@ int Signal::fft(int dir, int m, double *x, double *y) {
 			c2 = -c2;
 		c1 = sqrt((1.0 + c1) / 2.0);
 	}
+
 	/* Scaling for forward transform */
 	if (dir == 1) {
 		for (i=0;i<n;i++) {
@@ -139,6 +158,7 @@ int Signal::fft(int dir, int m, double *x, double *y) {
 			y[i] /= n;
 		}
 	}
+
 	return(1);
 }
 
@@ -152,10 +172,10 @@ void Signal::addTone(double freq, double amplitude, double start, double end) {
 
 void Signal::lowPass(double freq, double attenuation) {
 	int r = 1 - attenuation;
-	dft();
+	fft(1);
 	for (int i = freq+1; i < N; ++i) {
 		a[i] = a[i] * r;
 		b[i] = b[i] * r;
 	}
-	idft();
+	fft(-1);
 }
