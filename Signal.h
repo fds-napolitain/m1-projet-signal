@@ -73,6 +73,13 @@ public:
 	 * @param end entre start et duree
 	 */
 	void addTone(double freq, double amplitude, double start, double end);
+
+	/**
+	 * Filtre passe-bas qui applique une atténuation à partir d'une certaine fréquence.
+	 * @param freq 3000 hz pour freq >= 3000
+	 * @param attenuation 1 pour supprimer
+	 */
+	void lowPass(double freq, double attenuation);
 };
 
 

@@ -150,11 +150,12 @@ void Signal::addTone(double freq, double amplitude, double start, double end) {
 	}
 }
 
-// TODO: essayer de le faire sur a et b plutot que signal (ne pas changer la meme chose)
-/*void Signal::addTone2(Tone tone, double start, double end) {
-	double tone = amplitude * 2.0 * M_PI * freq / (double) FREQ_ECHANTILLONNAGE;
-	int fin = end*FREQ_ECHANTILLONNAGE;
-	for (int i = start*FREQ_ECHANTILLONNAGE; i < fin; ++i) {
-		signal[i] = sin((double) i * tone);
+void Signal::lowPass(double freq, double attenuation) {
+	int r = 1 - attenuation;
+	dft();
+	for (int i = freq+1; i < N; ++i) {
+		a[i] = a[i] * r;
+		b[i] = b[i] * r;
 	}
-}*/
+	idft();
+}
