@@ -12,6 +12,9 @@ CMakeFiles/m1_projet_signal.dir/Signal.cpp.o: ../utils.h
 CMakeFiles/m1_projet_signal.dir/Tone.cpp.o: ../Tone.cpp
 CMakeFiles/m1_projet_signal.dir/Tone.cpp.o: ../Tone.h
 
+CMakeFiles/m1_projet_signal.dir/Track.cpp.o: ../Track.cpp
+CMakeFiles/m1_projet_signal.dir/Track.cpp.o: ../Track.h
+
 CMakeFiles/m1_projet_signal.dir/Wave.cpp.o: ../Wave.cpp
 CMakeFiles/m1_projet_signal.dir/Wave.cpp.o: ../Wave.h
 

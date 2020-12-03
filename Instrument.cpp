@@ -6,9 +6,8 @@
 
 
 Instrument::Instrument() {
-	instruments = unordered_map<char*, char*>();
 }
 
 void Instrument::addInstrument(char* name, char* expression) {
-	instruments.insert(name, expression);
+	instruments.insert(make_pair(name, expression));
 }
