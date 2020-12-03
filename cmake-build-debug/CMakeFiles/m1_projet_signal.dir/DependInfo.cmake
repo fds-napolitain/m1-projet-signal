@@ -4,13 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/maxim/CLionProjects/m1-projet-signal/Signal.cpp" "C:/Users/maxim/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles/m1_projet_signal.dir/Signal.cpp.obj"
-  "C:/Users/maxim/CLionProjects/m1-projet-signal/Tone.cpp" "C:/Users/maxim/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles/m1_projet_signal.dir/Tone.cpp.obj"
-  "C:/Users/maxim/CLionProjects/m1-projet-signal/Wave.cpp" "C:/Users/maxim/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles/m1_projet_signal.dir/Wave.cpp.obj"
-  "C:/Users/maxim/CLionProjects/m1-projet-signal/main.cpp" "C:/Users/maxim/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles/m1_projet_signal.dir/main.cpp.obj"
-  "C:/Users/maxim/CLionProjects/m1-projet-signal/utils.cpp" "C:/Users/maxim/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles/m1_projet_signal.dir/utils.cpp.obj"
+  "/Users/napolitain/Development/CLionProjects/m1-projet-signal/Instrument.cpp" "/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles/m1_projet_signal.dir/Instrument.cpp.o"
+  "/Users/napolitain/Development/CLionProjects/m1-projet-signal/Signal.cpp" "/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles/m1_projet_signal.dir/Signal.cpp.o"
+  "/Users/napolitain/Development/CLionProjects/m1-projet-signal/Tone.cpp" "/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles/m1_projet_signal.dir/Tone.cpp.o"
+  "/Users/napolitain/Development/CLionProjects/m1-projet-signal/Track.cpp" "/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles/m1_projet_signal.dir/Track.cpp.o"
+  "/Users/napolitain/Development/CLionProjects/m1-projet-signal/Wave.cpp" "/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles/m1_projet_signal.dir/Wave.cpp.o"
+  "/Users/napolitain/Development/CLionProjects/m1-projet-signal/main.cpp" "/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles/m1_projet_signal.dir/main.cpp.o"
+  "/Users/napolitain/Development/CLionProjects/m1-projet-signal/utils.cpp" "/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles/m1_projet_signal.dir/utils.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
