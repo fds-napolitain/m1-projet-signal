@@ -161,14 +161,15 @@ void Signal::addTone(Tone tone, double start, double end) {
 	}
 }
 
-void Signal::addTones(std::vector<Tone> tones, double start, double end) {
-	double omega = 0;
-	for (int i = 0; i < tones.size(); ++i) {
-		omega += 2.0 * M_PI * tones[i].freq / (double) FREQ_ECHANTILLONNAGE;
-	}
-	omega /= tones.size();
+void Signal::addTones(Tones tones, double start, double end) {
+	std::vector<double> omega (tones.size());
 	for (int i = 0; i < start * FREQ_ECHANTILLONNAGE; ++i) {
-		signal[i] = sin((double) i * omega);
+		signal[i] = 0;
+		for (int j = 0; j < tones.size(); ++j) {
+			signal[i] += sin((double) i * omega[i]);
+		}
+		signal[i] /= tones.size();
+		std::cout << signal[i];
 	}
 }
 
