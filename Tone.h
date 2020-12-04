@@ -1,6 +1,7 @@
 #ifndef M1_PROJET_SIGNAL_TONE_H
 #define M1_PROJET_SIGNAL_TONE_H
 
+#include <vector>
 
 class Tone {
 public:
@@ -22,5 +23,6 @@ public:
 	void incrementSemiTone(double freq, double i);
 };
 
+typedef std::vector<Tone> Tones;
 
 #endif //M1_PROJET_SIGNAL_TONE_H

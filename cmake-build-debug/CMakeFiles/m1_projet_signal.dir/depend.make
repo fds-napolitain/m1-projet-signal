@@ -6,6 +6,7 @@ CMakeFiles/m1_projet_signal.dir/Instrument.cpp.o: ../Instrument.h
 
 CMakeFiles/m1_projet_signal.dir/Signal.cpp.o: ../Signal.cpp
 CMakeFiles/m1_projet_signal.dir/Signal.cpp.o: ../Signal.h
+CMakeFiles/m1_projet_signal.dir/Signal.cpp.o: ../Tone.h
 CMakeFiles/m1_projet_signal.dir/Signal.cpp.o: ../Wave.h
 CMakeFiles/m1_projet_signal.dir/Signal.cpp.o: ../utils.h
 

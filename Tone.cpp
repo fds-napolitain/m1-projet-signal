@@ -1,5 +1,4 @@
 #include <cmath>
-#include <iostream>
 #include "Tone.h"
 
 using namespace std;

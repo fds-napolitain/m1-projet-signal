@@ -73,21 +73,6 @@ void Signal::idft() {
 	}
 }
 
-/* Renvoie m tel que 2^m >= n  */
-int Signal::next_pow2(int n) {
-
-	int next_pow2 = 1;
-	int m = 0;
-
-	while (next_pow2 < n) {
-		next_pow2 *= 2;
-		m++;
-	}
-
-	return m;
-}
-
-
 int Signal::fft(int dir) {
 	int n,i,i1,j,k,i2,l,l1,l2;
 	double c1,c2,tx,ty,t1,t2,u1,u2,z;
@@ -105,13 +90,8 @@ int Signal::fft(int dir) {
 	signal.resize(N);
 	a.resize(N);
 	b.resize(N);
-	double *x;
+	double *x = a.data();
 	double *y = b.data();
-	if (dir == -1) { // si on fait a, b -> signal
-		x = a.data();
-	} else { // sinon on fait signal, b=0 -> a, b
-		x = signal.data();
-	}
 
 	/* Do the bit reversal */
 	i2 = n >> 1;
@@ -173,16 +153,26 @@ int Signal::fft(int dir) {
 	return(1);
 }
 
-void Signal::addTone(double freq, double amplitude, double start, double end) {
-	double tone = 2.0 * M_PI * freq / (double) FREQ_ECHANTILLONNAGE;
-	int fin = end*FREQ_ECHANTILLONNAGE;
-	for (int i = start*FREQ_ECHANTILLONNAGE; i < fin; ++i) {
-		signal[i] = sin((double) i * tone);
+void Signal::addTone(Tone tone, double start, double end) {
+	double omega = tone.amplitude * 2.0 * M_PI * tone.freq / (double) FREQ_ECHANTILLONNAGE;
+	int fin = end * FREQ_ECHANTILLONNAGE;
+	for (int i = start * FREQ_ECHANTILLONNAGE; i < fin; ++i) {
+		signal[i] = sin((double) i * omega);
+	}
+}
+
+void Signal::addTones(std::vector<Tone> tones, double start, double end) {
+	double omega = 0;
+	for (int i = 0; i < tones.size(); ++i) {
+		omega += 2.0 * M_PI * tones[i].freq / (double) FREQ_ECHANTILLONNAGE;
+	}
+	omega /= tones.size();
+	for (int i = 0; i < start * FREQ_ECHANTILLONNAGE; ++i) {
+		signal[i] = sin((double) i * omega);
 	}
 }
 
 void Signal::filter_low_pass(double fc, double attenuation) {
-	double omegac = 2 * M_PI * fc;
 	double r = 1 - attenuation;
 	fft(1);
 	for (int i = fc+1; i < N; ++i) {
@@ -190,13 +180,10 @@ void Signal::filter_low_pass(double fc, double attenuation) {
 		b[i] = b[i] * r;
 	}
 	fft(-1);
-	for (int i = fc-10; i < N; ++i) {
-		if (i <  fc+10) std::cout << "      f=" << i << "    w=" << signal[i] << " " << a[i] << " " << b[i] << "\n";
-	}
 }
 
 void Signal::filter_butterworth(double *input, double *output, double N, double alpha) {
 	// plus la fonction de transition est de grand ordre plus le cutoff est severe
+	// double omegac = 2 * M_PI * fc;
 	// double gain = 1.0 / (pow(r / omegac, 3) + pow(r / omegac, 2) + pow(r / omegac, 1) + pow(r / omegac, 0));
-
 }

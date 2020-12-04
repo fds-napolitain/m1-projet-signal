@@ -2,6 +2,7 @@
 #define M1_PROJET_SIGNAL_SIGNAL_H
 
 #include <vector>
+#include "Tone.h"
 
 class Signal {
 public:
@@ -47,13 +48,6 @@ public:
 	void idft();
 
 	/**
-	 * Avoir m tel que 2**m == N
-	 * @param n
-	 * @return
-	 */
-	int next_pow2(int n);
-
-	/**
 	 *	This fft has been proposed by Paul Bourke
 	 *	http://paulbourke.net/miscellaneous/dft/
 	 *	This computes an in-place complex-to-complex fft
@@ -76,7 +70,9 @@ public:
 	 * @param start entre 0 et end
 	 * @param end entre start et duree
 	 */
-	void addTone(double freq, double amplitude, double start, double end);
+	void addTone(Tone tone, double start, double end);
+
+	void addTones(std::vector<Tone> tones, double start, double end);
 
 	/**
 	 * Filtre passe-bas qui applique une atténuation à partir d'une certaine fréquence.

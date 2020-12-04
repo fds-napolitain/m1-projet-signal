@@ -10,9 +10,9 @@ using namespace std;
  * Création du La 440
  */
 void la440() {
-	Tone A4 = Tone("A4");
+	Tone A4 = Tone((char*) "A4");
 	Signal la440 = Signal(6.0);
-	la440.addTone(A4.freq, 1.0, 1.0, 5.0);
+	la440.addTone(A4, 1.0, 5.0);
 	la440.write_signal((char*) "../sons/la440.wav");
 	Signal la442 = Signal(6.0);
 }
@@ -38,13 +38,18 @@ void verifDft() {
  * Création du Do majeur
  */
 void doMajeur() {
+	Signal C4 = Signal(3.0);
 	Signal C4Majeur = Signal(3.0);
-	Tone C4 = Tone("C4");
-	Tone E4 = Tone("E4");
-	Tone G4 = Tone("G4");
-	C4Majeur.addTone(C4.freq, 0.33, 0, 3);
-	C4Majeur.addTone(E4.freq, 0.33, 0, 3);
-	C4Majeur.addTone(G4.freq, 0.33, 0, 3);
+	Tone T_C4 = Tone((char*) "C4");
+	Tone T_E4 = Tone((char*) "E4");
+	Tone T_G4 = Tone((char*) "G4");
+	Tones tones (3);
+	tones[0] = T_C4;
+	tones[1] = T_E4;
+	tones[2] = T_G4;
+	C4.addTone(T_C4, 0, 3);
+	C4Majeur.addTones(tones, 0, 3);
+	C4.write_signal((char*) "../sons/do.wav");
 	C4Majeur.write_signal((char*) "../sons/doMajeur.wav");
 }
 
@@ -53,14 +58,14 @@ void doMajeur() {
  */
 void passeBas() {
 	Signal signal = Signal((char*) "../sons/GammePiano.wav");
-	signal.filter_low_pass(2000, 0);
-	signal.write_signal("../sons/GammePianoBas.wav");
+	signal.filter_low_pass(2000, 1);
+	signal.write_signal((char*) "../sons/GammePianoBas.wav");
 }
 
 int main() {
 //	la440();
 //	verifDft();
-//	doMajeur();
-	passeBas();
+	doMajeur();
+//	passeBas();
 	return 0;
 }
