@@ -43,10 +43,10 @@ void doMajeur() {
 	Tone T_C4 = Tone((char*) "C4");
 	Tone T_E4 = Tone((char*) "E4");
 	Tone T_G4 = Tone((char*) "G4");
-	Tones tones (3);
-	tones[0] = T_C4;
-	tones[1] = T_E4;
-	tones[2] = T_G4;
+	Tones tones;
+	tones.push_back(T_C4);
+	tones.push_back(T_E4);
+	tones.push_back(T_G4);
 	C4.addTone(T_C4, 0, 3);
 	C4Majeur.addTones(tones, 0, 3);
 	C4.write_signal((char*) "../sons/do.wav");
