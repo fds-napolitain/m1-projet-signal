@@ -185,12 +185,9 @@ void Signal::filter_low_pass(double fc, double attenuation) {
 	double omegac = 2 * M_PI * fc;
 	double r = 1 - attenuation;
 	fft(1);
-	for (int i = fc-10; i < N; ++i) {
-		if (i <  fc+10) std::cout << "      f=" << i << "    w=" << signal[i] << " " << a[i] << " " << b[i] << "\n";
-		if (i > fc) {
-			a[i] = a[i] * r;
-			b[i] = b[i] * r;
-		}
+	for (int i = fc+1; i < N; ++i) {
+		a[i] = a[i] * r;
+		b[i] = b[i] * r;
 	}
 	fft(-1);
 	for (int i = fc-10; i < N; ++i) {
