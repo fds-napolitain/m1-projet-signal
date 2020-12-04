@@ -87,20 +87,31 @@ int Signal::next_pow2(int n) {
 	return m;
 }
 
-// TODO: pas encore adapté pour ma class Signal
+
 int Signal::fft(int dir) {
 	int n,i,i1,j,k,i2,l,l1,l2;
 	double c1,c2,tx,ty,t1,t2,u1,u2,z;
-	int m = next_pow2(signal.size());
+
+	// calculer le m automatiquement avec notre N existant
+	n = 1;
+	int m = 0;
+	while (n < N) {
+		n *= 2;
+		m++;
+	}
 
 	/* Calculate the number of points */
-	n = pow(2, m);
 	N = n;
 	signal.resize(N);
 	a.resize(N);
 	b.resize(N);
-	double *x = a.data();
+	double *x;
 	double *y = b.data();
+	if (dir == -1) { // si on fait a, b -> signal
+		x = a.data();
+	} else { // sinon on fait signal, b=0 -> a, b
+		x = signal.data();
+	}
 
 	/* Do the bit reversal */
 	i2 = n >> 1;
@@ -170,12 +181,25 @@ void Signal::addTone(double freq, double amplitude, double start, double end) {
 	}
 }
 
-void Signal::lowPass(double freq, double attenuation) {
-	int r = 1 - attenuation;
+void Signal::filter_low_pass(double fc, double attenuation) {
+	double omegac = 2 * M_PI * fc;
+	double r = 1 - attenuation;
 	fft(1);
-	for (int i = freq+1; i < N; ++i) {
-		a[i] = a[i] * r;
-		b[i] = b[i] * r;
+	for (int i = fc-10; i < N; ++i) {
+		if (i <  fc+10) std::cout << "      f=" << i << "    w=" << signal[i] << " " << a[i] << " " << b[i] << "\n";
+		if (i > fc) {
+			a[i] = a[i] * r;
+			b[i] = b[i] * r;
+		}
 	}
 	fft(-1);
+	for (int i = fc-10; i < N; ++i) {
+		if (i <  fc+10) std::cout << "      f=" << i << "    w=" << signal[i] << " " << a[i] << " " << b[i] << "\n";
+	}
+}
+
+void Signal::filter_butterworth(double *input, double *output, double N, double alpha) {
+	// plus la fonction de transition est de grand ordre plus le cutoff est severe
+	// double gain = 1.0 / (pow(r / omegac, 3) + pow(r / omegac, 2) + pow(r / omegac, 1) + pow(r / omegac, 0));
+
 }

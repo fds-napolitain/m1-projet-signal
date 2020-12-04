@@ -11,8 +11,6 @@ private:
 	char chunk_id[4];          // (4 octets) : Identifiant "fmt "
 	int chunk_size;            // (4 octets) : Nombre d'octets utilisés pour définir en détail le chunk
 	short format;              // (2 octets) : Format de fichier (1: PCM,  ...)
-	short channels_nb;         // (2 octets) : Nombre de canaux (1 pour mono ou 2 pour stéréo)
-	int sampling_freq;         // (4 octets) : Fréquence d'échantillonnage (en Hertz)
 	int bytes_per_second;      // (4 octets) : Nombre d'octets par seconde de musique
 	short bytes_per_sample;    // (2 octets) : Nombre d'octets par échantillon
 	short depth;               // (2 octets) : Nombre de bits par donnée (8 ou 16)
@@ -32,6 +30,9 @@ private:
 						int sampling_freq); // Fréquence d'échantillonnage (en Hertz)(classique en musique : 44100 Hz)
 
 public:
+	short channels_nb;         // (2 octets) : Nombre de canaux (1 pour mono ou 2 pour stéréo)
+	int sampling_freq;         // (4 octets) : Fréquence d'échantillonnage (en Hertz)
+
 	Wave();
 	~Wave();
 	Wave(short* data16,      // Tableau de données

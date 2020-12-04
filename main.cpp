@@ -53,7 +53,7 @@ void doMajeur() {
  */
 void passeBas() {
 	Signal signal1 = Signal((char*) "../sons/GammePiano.wav");
-	signal1.lowPass(3000, 1);
+	signal1.filter_low_pass(1000, 1);
 	signal1.write_signal("../sons/GammePianoBas.wav");
 }
 
