@@ -54,11 +54,11 @@ void doMajeur() {
 }
 
 /**
- * Test du filtre passe bas sur la flute
+ * Test du filtre passe bas sur la piano
  */
 void passeBas() {
 	Signal signal = Signal((char*) "../sons/GammePiano.wav");
-	signal.filter_low_pass(1000, 1);
+	signal.filter_low_pass(300);
 	signal.write_signal((char*) "../sons/GammePianoBas.wav");
 }
 

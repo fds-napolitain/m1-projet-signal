@@ -76,10 +76,10 @@ public:
 
 	/**
 	 * Filtre passe-bas qui applique une atténuation à partir d'une certaine fréquence.
+	 * Utilise le domaine fréquenciel donc
 	 * @param fc 3000 hz pour fc >= 3000
-	 * @param attenuation 1 pour supprimer
 	 */
-	void filter_low_pass(double fc, double attenuation);
+	void filter_low_pass(double fc);
 
 	void filter_butterworth(double *input, double *output, double N, double alpha);
 };

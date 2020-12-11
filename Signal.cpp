@@ -11,6 +11,7 @@ Signal::Signal(char *path) {
 	wave.getData8(&data8, &(Signal::N));
 	Signal::FREQ_ECHANTILLONNAGE = wave.sampling_freq;
 	Signal::signal.resize(N);
+	Signal::duree = Signal::N / Signal::FREQ_ECHANTILLONNAGE;
 	Signal::a.resize(N);
 	Signal::b.resize(N);
 	for (int i = 0; i < N; ++i) {
@@ -85,12 +86,18 @@ int Signal::fft(int dir) {
 		n *= 2;
 		m++;
 	}
+	int index = N;
 
 	/* Calculate the number of points */
 	N = n;
 	signal.resize(N);
 	a.resize(N);
 	b.resize(N);
+	for (int k1 = index; k1 < N; ++k1) {
+		signal[0] = 0;
+		a[0] = 0;
+		b[0] = 0;
+	}
 	double *x = a.data();
 	double *y = b.data();
 
@@ -174,12 +181,14 @@ void Signal::addTones(Tones tones, double start, double end) {
 	}
 }
 
-void Signal::filter_low_pass(double fc, double attenuation) {
-	double r = 1 - attenuation;
+void Signal::filter_low_pass(double fc) {
 	fft(1);
-	for (int i = fc+1; i < N; ++i) {
-		a[i] *= r;
-		b[i] *= r;
+	int j = N - fc;
+	for (int i = 0; i < N; ++i) {
+		if (i > fc && i < j) {
+			a[i] = 0;
+			b[i] = 0;
+		}
 	}
 	fft(-1);
 }
