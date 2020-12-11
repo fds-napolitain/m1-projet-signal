@@ -90,107 +90,122 @@ CMakeFiles/m1_projet_signal.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/m1_projet_signal.dir/main.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/napolitain/Development/CLionProjects/m1-projet-signal/main.cpp -o CMakeFiles/m1_projet_signal.dir/main.cpp.s
 
-CMakeFiles/m1_projet_signal.dir/Wave.cpp.o: CMakeFiles/m1_projet_signal.dir/flags.make
-CMakeFiles/m1_projet_signal.dir/Wave.cpp.o: ../Wave.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/m1_projet_signal.dir/Wave.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/m1_projet_signal.dir/Wave.cpp.o -c /Users/napolitain/Development/CLionProjects/m1-projet-signal/Wave.cpp
+CMakeFiles/m1_projet_signal.dir/src/utils/Wave.cpp.o: CMakeFiles/m1_projet_signal.dir/flags.make
+CMakeFiles/m1_projet_signal.dir/src/utils/Wave.cpp.o: ../src/utils/Wave.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/m1_projet_signal.dir/src/utils/Wave.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/m1_projet_signal.dir/src/utils/Wave.cpp.o -c /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/utils/Wave.cpp
 
-CMakeFiles/m1_projet_signal.dir/Wave.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/m1_projet_signal.dir/Wave.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/napolitain/Development/CLionProjects/m1-projet-signal/Wave.cpp > CMakeFiles/m1_projet_signal.dir/Wave.cpp.i
+CMakeFiles/m1_projet_signal.dir/src/utils/Wave.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/m1_projet_signal.dir/src/utils/Wave.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/utils/Wave.cpp > CMakeFiles/m1_projet_signal.dir/src/utils/Wave.cpp.i
 
-CMakeFiles/m1_projet_signal.dir/Wave.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/m1_projet_signal.dir/Wave.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/napolitain/Development/CLionProjects/m1-projet-signal/Wave.cpp -o CMakeFiles/m1_projet_signal.dir/Wave.cpp.s
+CMakeFiles/m1_projet_signal.dir/src/utils/Wave.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/m1_projet_signal.dir/src/utils/Wave.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/utils/Wave.cpp -o CMakeFiles/m1_projet_signal.dir/src/utils/Wave.cpp.s
 
-CMakeFiles/m1_projet_signal.dir/Signal.cpp.o: CMakeFiles/m1_projet_signal.dir/flags.make
-CMakeFiles/m1_projet_signal.dir/Signal.cpp.o: ../Signal.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/m1_projet_signal.dir/Signal.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/m1_projet_signal.dir/Signal.cpp.o -c /Users/napolitain/Development/CLionProjects/m1-projet-signal/Signal.cpp
+CMakeFiles/m1_projet_signal.dir/src/Signal.cpp.o: CMakeFiles/m1_projet_signal.dir/flags.make
+CMakeFiles/m1_projet_signal.dir/src/Signal.cpp.o: ../src/Signal.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/m1_projet_signal.dir/src/Signal.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/m1_projet_signal.dir/src/Signal.cpp.o -c /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Signal.cpp
 
-CMakeFiles/m1_projet_signal.dir/Signal.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/m1_projet_signal.dir/Signal.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/napolitain/Development/CLionProjects/m1-projet-signal/Signal.cpp > CMakeFiles/m1_projet_signal.dir/Signal.cpp.i
+CMakeFiles/m1_projet_signal.dir/src/Signal.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/m1_projet_signal.dir/src/Signal.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Signal.cpp > CMakeFiles/m1_projet_signal.dir/src/Signal.cpp.i
 
-CMakeFiles/m1_projet_signal.dir/Signal.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/m1_projet_signal.dir/Signal.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/napolitain/Development/CLionProjects/m1-projet-signal/Signal.cpp -o CMakeFiles/m1_projet_signal.dir/Signal.cpp.s
+CMakeFiles/m1_projet_signal.dir/src/Signal.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/m1_projet_signal.dir/src/Signal.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Signal.cpp -o CMakeFiles/m1_projet_signal.dir/src/Signal.cpp.s
 
-CMakeFiles/m1_projet_signal.dir/utils.cpp.o: CMakeFiles/m1_projet_signal.dir/flags.make
-CMakeFiles/m1_projet_signal.dir/utils.cpp.o: ../utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/m1_projet_signal.dir/utils.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/m1_projet_signal.dir/utils.cpp.o -c /Users/napolitain/Development/CLionProjects/m1-projet-signal/utils.cpp
+CMakeFiles/m1_projet_signal.dir/src/utils/utils.cpp.o: CMakeFiles/m1_projet_signal.dir/flags.make
+CMakeFiles/m1_projet_signal.dir/src/utils/utils.cpp.o: ../src/utils/utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/m1_projet_signal.dir/src/utils/utils.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/m1_projet_signal.dir/src/utils/utils.cpp.o -c /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/utils/utils.cpp
 
-CMakeFiles/m1_projet_signal.dir/utils.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/m1_projet_signal.dir/utils.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/napolitain/Development/CLionProjects/m1-projet-signal/utils.cpp > CMakeFiles/m1_projet_signal.dir/utils.cpp.i
+CMakeFiles/m1_projet_signal.dir/src/utils/utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/m1_projet_signal.dir/src/utils/utils.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/utils/utils.cpp > CMakeFiles/m1_projet_signal.dir/src/utils/utils.cpp.i
 
-CMakeFiles/m1_projet_signal.dir/utils.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/m1_projet_signal.dir/utils.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/napolitain/Development/CLionProjects/m1-projet-signal/utils.cpp -o CMakeFiles/m1_projet_signal.dir/utils.cpp.s
+CMakeFiles/m1_projet_signal.dir/src/utils/utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/m1_projet_signal.dir/src/utils/utils.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/utils/utils.cpp -o CMakeFiles/m1_projet_signal.dir/src/utils/utils.cpp.s
 
-CMakeFiles/m1_projet_signal.dir/Tone.cpp.o: CMakeFiles/m1_projet_signal.dir/flags.make
-CMakeFiles/m1_projet_signal.dir/Tone.cpp.o: ../Tone.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/m1_projet_signal.dir/Tone.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/m1_projet_signal.dir/Tone.cpp.o -c /Users/napolitain/Development/CLionProjects/m1-projet-signal/Tone.cpp
+CMakeFiles/m1_projet_signal.dir/src/Tone.cpp.o: CMakeFiles/m1_projet_signal.dir/flags.make
+CMakeFiles/m1_projet_signal.dir/src/Tone.cpp.o: ../src/Tone.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/m1_projet_signal.dir/src/Tone.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/m1_projet_signal.dir/src/Tone.cpp.o -c /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Tone.cpp
 
-CMakeFiles/m1_projet_signal.dir/Tone.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/m1_projet_signal.dir/Tone.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/napolitain/Development/CLionProjects/m1-projet-signal/Tone.cpp > CMakeFiles/m1_projet_signal.dir/Tone.cpp.i
+CMakeFiles/m1_projet_signal.dir/src/Tone.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/m1_projet_signal.dir/src/Tone.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Tone.cpp > CMakeFiles/m1_projet_signal.dir/src/Tone.cpp.i
 
-CMakeFiles/m1_projet_signal.dir/Tone.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/m1_projet_signal.dir/Tone.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/napolitain/Development/CLionProjects/m1-projet-signal/Tone.cpp -o CMakeFiles/m1_projet_signal.dir/Tone.cpp.s
+CMakeFiles/m1_projet_signal.dir/src/Tone.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/m1_projet_signal.dir/src/Tone.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Tone.cpp -o CMakeFiles/m1_projet_signal.dir/src/Tone.cpp.s
 
-CMakeFiles/m1_projet_signal.dir/Instrument.cpp.o: CMakeFiles/m1_projet_signal.dir/flags.make
-CMakeFiles/m1_projet_signal.dir/Instrument.cpp.o: ../Instrument.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/m1_projet_signal.dir/Instrument.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/m1_projet_signal.dir/Instrument.cpp.o -c /Users/napolitain/Development/CLionProjects/m1-projet-signal/Instrument.cpp
+CMakeFiles/m1_projet_signal.dir/src/Instrument.cpp.o: CMakeFiles/m1_projet_signal.dir/flags.make
+CMakeFiles/m1_projet_signal.dir/src/Instrument.cpp.o: ../src/Instrument.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/m1_projet_signal.dir/src/Instrument.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/m1_projet_signal.dir/src/Instrument.cpp.o -c /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Instrument.cpp
 
-CMakeFiles/m1_projet_signal.dir/Instrument.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/m1_projet_signal.dir/Instrument.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/napolitain/Development/CLionProjects/m1-projet-signal/Instrument.cpp > CMakeFiles/m1_projet_signal.dir/Instrument.cpp.i
+CMakeFiles/m1_projet_signal.dir/src/Instrument.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/m1_projet_signal.dir/src/Instrument.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Instrument.cpp > CMakeFiles/m1_projet_signal.dir/src/Instrument.cpp.i
 
-CMakeFiles/m1_projet_signal.dir/Instrument.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/m1_projet_signal.dir/Instrument.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/napolitain/Development/CLionProjects/m1-projet-signal/Instrument.cpp -o CMakeFiles/m1_projet_signal.dir/Instrument.cpp.s
+CMakeFiles/m1_projet_signal.dir/src/Instrument.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/m1_projet_signal.dir/src/Instrument.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Instrument.cpp -o CMakeFiles/m1_projet_signal.dir/src/Instrument.cpp.s
 
-CMakeFiles/m1_projet_signal.dir/Track.cpp.o: CMakeFiles/m1_projet_signal.dir/flags.make
-CMakeFiles/m1_projet_signal.dir/Track.cpp.o: ../Track.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/m1_projet_signal.dir/Track.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/m1_projet_signal.dir/Track.cpp.o -c /Users/napolitain/Development/CLionProjects/m1-projet-signal/Track.cpp
+CMakeFiles/m1_projet_signal.dir/src/Track.cpp.o: CMakeFiles/m1_projet_signal.dir/flags.make
+CMakeFiles/m1_projet_signal.dir/src/Track.cpp.o: ../src/Track.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/m1_projet_signal.dir/src/Track.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/m1_projet_signal.dir/src/Track.cpp.o -c /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Track.cpp
 
-CMakeFiles/m1_projet_signal.dir/Track.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/m1_projet_signal.dir/Track.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/napolitain/Development/CLionProjects/m1-projet-signal/Track.cpp > CMakeFiles/m1_projet_signal.dir/Track.cpp.i
+CMakeFiles/m1_projet_signal.dir/src/Track.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/m1_projet_signal.dir/src/Track.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Track.cpp > CMakeFiles/m1_projet_signal.dir/src/Track.cpp.i
 
-CMakeFiles/m1_projet_signal.dir/Track.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/m1_projet_signal.dir/Track.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/napolitain/Development/CLionProjects/m1-projet-signal/Track.cpp -o CMakeFiles/m1_projet_signal.dir/Track.cpp.s
+CMakeFiles/m1_projet_signal.dir/src/Track.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/m1_projet_signal.dir/src/Track.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Track.cpp -o CMakeFiles/m1_projet_signal.dir/src/Track.cpp.s
+
+CMakeFiles/m1_projet_signal.dir/src/Effects.cpp.o: CMakeFiles/m1_projet_signal.dir/flags.make
+CMakeFiles/m1_projet_signal.dir/src/Effects.cpp.o: ../src/Effects.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/m1_projet_signal.dir/src/Effects.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/m1_projet_signal.dir/src/Effects.cpp.o -c /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Effects.cpp
+
+CMakeFiles/m1_projet_signal.dir/src/Effects.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/m1_projet_signal.dir/src/Effects.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Effects.cpp > CMakeFiles/m1_projet_signal.dir/src/Effects.cpp.i
+
+CMakeFiles/m1_projet_signal.dir/src/Effects.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/m1_projet_signal.dir/src/Effects.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Effects.cpp -o CMakeFiles/m1_projet_signal.dir/src/Effects.cpp.s
 
 # Object files for target m1_projet_signal
 m1_projet_signal_OBJECTS = \
 "CMakeFiles/m1_projet_signal.dir/main.cpp.o" \
-"CMakeFiles/m1_projet_signal.dir/Wave.cpp.o" \
-"CMakeFiles/m1_projet_signal.dir/Signal.cpp.o" \
-"CMakeFiles/m1_projet_signal.dir/utils.cpp.o" \
-"CMakeFiles/m1_projet_signal.dir/Tone.cpp.o" \
-"CMakeFiles/m1_projet_signal.dir/Instrument.cpp.o" \
-"CMakeFiles/m1_projet_signal.dir/Track.cpp.o"
+"CMakeFiles/m1_projet_signal.dir/src/utils/Wave.cpp.o" \
+"CMakeFiles/m1_projet_signal.dir/src/Signal.cpp.o" \
+"CMakeFiles/m1_projet_signal.dir/src/utils/utils.cpp.o" \
+"CMakeFiles/m1_projet_signal.dir/src/Tone.cpp.o" \
+"CMakeFiles/m1_projet_signal.dir/src/Instrument.cpp.o" \
+"CMakeFiles/m1_projet_signal.dir/src/Track.cpp.o" \
+"CMakeFiles/m1_projet_signal.dir/src/Effects.cpp.o"
 
 # External object files for target m1_projet_signal
 m1_projet_signal_EXTERNAL_OBJECTS =
 
 m1_projet_signal: CMakeFiles/m1_projet_signal.dir/main.cpp.o
-m1_projet_signal: CMakeFiles/m1_projet_signal.dir/Wave.cpp.o
-m1_projet_signal: CMakeFiles/m1_projet_signal.dir/Signal.cpp.o
-m1_projet_signal: CMakeFiles/m1_projet_signal.dir/utils.cpp.o
-m1_projet_signal: CMakeFiles/m1_projet_signal.dir/Tone.cpp.o
-m1_projet_signal: CMakeFiles/m1_projet_signal.dir/Instrument.cpp.o
-m1_projet_signal: CMakeFiles/m1_projet_signal.dir/Track.cpp.o
+m1_projet_signal: CMakeFiles/m1_projet_signal.dir/src/utils/Wave.cpp.o
+m1_projet_signal: CMakeFiles/m1_projet_signal.dir/src/Signal.cpp.o
+m1_projet_signal: CMakeFiles/m1_projet_signal.dir/src/utils/utils.cpp.o
+m1_projet_signal: CMakeFiles/m1_projet_signal.dir/src/Tone.cpp.o
+m1_projet_signal: CMakeFiles/m1_projet_signal.dir/src/Instrument.cpp.o
+m1_projet_signal: CMakeFiles/m1_projet_signal.dir/src/Track.cpp.o
+m1_projet_signal: CMakeFiles/m1_projet_signal.dir/src/Effects.cpp.o
 m1_projet_signal: CMakeFiles/m1_projet_signal.dir/build.make
 m1_projet_signal: CMakeFiles/m1_projet_signal.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable m1_projet_signal"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/napolitain/Development/CLionProjects/m1-projet-signal/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable m1_projet_signal"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/m1_projet_signal.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

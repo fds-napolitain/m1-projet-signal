@@ -143,141 +143,6 @@ m1_projet_signal/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/build
 .PHONY : m1_projet_signal/fast
 
-Instrument.o: Instrument.cpp.o
-
-.PHONY : Instrument.o
-
-# target to build an object file
-Instrument.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/Instrument.cpp.o
-.PHONY : Instrument.cpp.o
-
-Instrument.i: Instrument.cpp.i
-
-.PHONY : Instrument.i
-
-# target to preprocess a source file
-Instrument.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/Instrument.cpp.i
-.PHONY : Instrument.cpp.i
-
-Instrument.s: Instrument.cpp.s
-
-.PHONY : Instrument.s
-
-# target to generate assembly for a file
-Instrument.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/Instrument.cpp.s
-.PHONY : Instrument.cpp.s
-
-Signal.o: Signal.cpp.o
-
-.PHONY : Signal.o
-
-# target to build an object file
-Signal.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/Signal.cpp.o
-.PHONY : Signal.cpp.o
-
-Signal.i: Signal.cpp.i
-
-.PHONY : Signal.i
-
-# target to preprocess a source file
-Signal.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/Signal.cpp.i
-.PHONY : Signal.cpp.i
-
-Signal.s: Signal.cpp.s
-
-.PHONY : Signal.s
-
-# target to generate assembly for a file
-Signal.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/Signal.cpp.s
-.PHONY : Signal.cpp.s
-
-Tone.o: Tone.cpp.o
-
-.PHONY : Tone.o
-
-# target to build an object file
-Tone.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/Tone.cpp.o
-.PHONY : Tone.cpp.o
-
-Tone.i: Tone.cpp.i
-
-.PHONY : Tone.i
-
-# target to preprocess a source file
-Tone.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/Tone.cpp.i
-.PHONY : Tone.cpp.i
-
-Tone.s: Tone.cpp.s
-
-.PHONY : Tone.s
-
-# target to generate assembly for a file
-Tone.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/Tone.cpp.s
-.PHONY : Tone.cpp.s
-
-Track.o: Track.cpp.o
-
-.PHONY : Track.o
-
-# target to build an object file
-Track.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/Track.cpp.o
-.PHONY : Track.cpp.o
-
-Track.i: Track.cpp.i
-
-.PHONY : Track.i
-
-# target to preprocess a source file
-Track.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/Track.cpp.i
-.PHONY : Track.cpp.i
-
-Track.s: Track.cpp.s
-
-.PHONY : Track.s
-
-# target to generate assembly for a file
-Track.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/Track.cpp.s
-.PHONY : Track.cpp.s
-
-Wave.o: Wave.cpp.o
-
-.PHONY : Wave.o
-
-# target to build an object file
-Wave.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/Wave.cpp.o
-.PHONY : Wave.cpp.o
-
-Wave.i: Wave.cpp.i
-
-.PHONY : Wave.i
-
-# target to preprocess a source file
-Wave.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/Wave.cpp.i
-.PHONY : Wave.cpp.i
-
-Wave.s: Wave.cpp.s
-
-.PHONY : Wave.s
-
-# target to generate assembly for a file
-Wave.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/Wave.cpp.s
-.PHONY : Wave.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -305,32 +170,194 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-utils.o: utils.cpp.o
+src/Effects.o: src/Effects.cpp.o
 
-.PHONY : utils.o
+.PHONY : src/Effects.o
 
 # target to build an object file
-utils.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/utils.cpp.o
-.PHONY : utils.cpp.o
+src/Effects.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/Effects.cpp.o
+.PHONY : src/Effects.cpp.o
 
-utils.i: utils.cpp.i
+src/Effects.i: src/Effects.cpp.i
 
-.PHONY : utils.i
+.PHONY : src/Effects.i
 
 # target to preprocess a source file
-utils.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/utils.cpp.i
-.PHONY : utils.cpp.i
+src/Effects.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/Effects.cpp.i
+.PHONY : src/Effects.cpp.i
 
-utils.s: utils.cpp.s
+src/Effects.s: src/Effects.cpp.s
 
-.PHONY : utils.s
+.PHONY : src/Effects.s
 
 # target to generate assembly for a file
-utils.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/utils.cpp.s
-.PHONY : utils.cpp.s
+src/Effects.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/Effects.cpp.s
+.PHONY : src/Effects.cpp.s
+
+src/Instrument.o: src/Instrument.cpp.o
+
+.PHONY : src/Instrument.o
+
+# target to build an object file
+src/Instrument.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/Instrument.cpp.o
+.PHONY : src/Instrument.cpp.o
+
+src/Instrument.i: src/Instrument.cpp.i
+
+.PHONY : src/Instrument.i
+
+# target to preprocess a source file
+src/Instrument.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/Instrument.cpp.i
+.PHONY : src/Instrument.cpp.i
+
+src/Instrument.s: src/Instrument.cpp.s
+
+.PHONY : src/Instrument.s
+
+# target to generate assembly for a file
+src/Instrument.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/Instrument.cpp.s
+.PHONY : src/Instrument.cpp.s
+
+src/Signal.o: src/Signal.cpp.o
+
+.PHONY : src/Signal.o
+
+# target to build an object file
+src/Signal.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/Signal.cpp.o
+.PHONY : src/Signal.cpp.o
+
+src/Signal.i: src/Signal.cpp.i
+
+.PHONY : src/Signal.i
+
+# target to preprocess a source file
+src/Signal.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/Signal.cpp.i
+.PHONY : src/Signal.cpp.i
+
+src/Signal.s: src/Signal.cpp.s
+
+.PHONY : src/Signal.s
+
+# target to generate assembly for a file
+src/Signal.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/Signal.cpp.s
+.PHONY : src/Signal.cpp.s
+
+src/Tone.o: src/Tone.cpp.o
+
+.PHONY : src/Tone.o
+
+# target to build an object file
+src/Tone.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/Tone.cpp.o
+.PHONY : src/Tone.cpp.o
+
+src/Tone.i: src/Tone.cpp.i
+
+.PHONY : src/Tone.i
+
+# target to preprocess a source file
+src/Tone.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/Tone.cpp.i
+.PHONY : src/Tone.cpp.i
+
+src/Tone.s: src/Tone.cpp.s
+
+.PHONY : src/Tone.s
+
+# target to generate assembly for a file
+src/Tone.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/Tone.cpp.s
+.PHONY : src/Tone.cpp.s
+
+src/Track.o: src/Track.cpp.o
+
+.PHONY : src/Track.o
+
+# target to build an object file
+src/Track.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/Track.cpp.o
+.PHONY : src/Track.cpp.o
+
+src/Track.i: src/Track.cpp.i
+
+.PHONY : src/Track.i
+
+# target to preprocess a source file
+src/Track.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/Track.cpp.i
+.PHONY : src/Track.cpp.i
+
+src/Track.s: src/Track.cpp.s
+
+.PHONY : src/Track.s
+
+# target to generate assembly for a file
+src/Track.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/Track.cpp.s
+.PHONY : src/Track.cpp.s
+
+src/utils/Wave.o: src/utils/Wave.cpp.o
+
+.PHONY : src/utils/Wave.o
+
+# target to build an object file
+src/utils/Wave.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/utils/Wave.cpp.o
+.PHONY : src/utils/Wave.cpp.o
+
+src/utils/Wave.i: src/utils/Wave.cpp.i
+
+.PHONY : src/utils/Wave.i
+
+# target to preprocess a source file
+src/utils/Wave.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/utils/Wave.cpp.i
+.PHONY : src/utils/Wave.cpp.i
+
+src/utils/Wave.s: src/utils/Wave.cpp.s
+
+.PHONY : src/utils/Wave.s
+
+# target to generate assembly for a file
+src/utils/Wave.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/utils/Wave.cpp.s
+.PHONY : src/utils/Wave.cpp.s
+
+src/utils/utils.o: src/utils/utils.cpp.o
+
+.PHONY : src/utils/utils.o
+
+# target to build an object file
+src/utils/utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/utils/utils.cpp.o
+.PHONY : src/utils/utils.cpp.o
+
+src/utils/utils.i: src/utils/utils.cpp.i
+
+.PHONY : src/utils/utils.i
+
+# target to preprocess a source file
+src/utils/utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/utils/utils.cpp.i
+.PHONY : src/utils/utils.cpp.i
+
+src/utils/utils.s: src/utils/utils.cpp.s
+
+.PHONY : src/utils/utils.s
+
+# target to generate assembly for a file
+src/utils/utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/m1_projet_signal.dir/build.make CMakeFiles/m1_projet_signal.dir/src/utils/utils.cpp.s
+.PHONY : src/utils/utils.cpp.s
 
 # Help Target
 help:
@@ -341,27 +368,30 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... m1_projet_signal"
-	@echo "... Instrument.o"
-	@echo "... Instrument.i"
-	@echo "... Instrument.s"
-	@echo "... Signal.o"
-	@echo "... Signal.i"
-	@echo "... Signal.s"
-	@echo "... Tone.o"
-	@echo "... Tone.i"
-	@echo "... Tone.s"
-	@echo "... Track.o"
-	@echo "... Track.i"
-	@echo "... Track.s"
-	@echo "... Wave.o"
-	@echo "... Wave.i"
-	@echo "... Wave.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... utils.o"
-	@echo "... utils.i"
-	@echo "... utils.s"
+	@echo "... src/Effects.o"
+	@echo "... src/Effects.i"
+	@echo "... src/Effects.s"
+	@echo "... src/Instrument.o"
+	@echo "... src/Instrument.i"
+	@echo "... src/Instrument.s"
+	@echo "... src/Signal.o"
+	@echo "... src/Signal.i"
+	@echo "... src/Signal.s"
+	@echo "... src/Tone.o"
+	@echo "... src/Tone.i"
+	@echo "... src/Tone.s"
+	@echo "... src/Track.o"
+	@echo "... src/Track.i"
+	@echo "... src/Track.s"
+	@echo "... src/utils/Wave.o"
+	@echo "... src/utils/Wave.i"
+	@echo "... src/utils/Wave.s"
+	@echo "... src/utils/utils.o"
+	@echo "... src/utils/utils.i"
+	@echo "... src/utils/utils.s"
 .PHONY : help
 
 

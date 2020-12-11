@@ -1,8 +1,9 @@
 #include <iostream>
 #include <math.h>
-#include "Signal.h"
-#include "utils.h"
-#include "Tone.h"
+#include "src/Signal.h"
+#include "src/utils/utils.h"
+#include "src/Tone.h"
+#include "src/Effects.h"
 
 using namespace std;
 
@@ -58,8 +59,14 @@ void doMajeur() {
  */
 void passeBas() {
 	Signal signal = Signal((char*) "../sons/GammePiano.wav");
-	signal.filter_low_pass(300);
+	signal.filter(Effects::low_pass, 1000);
 	signal.write_signal((char*) "../sons/GammePianoBas.wav");
+}
+
+void butterWorth() {
+	Signal signal = Signal((char*) "../sons/GammePiano.wav");
+	signal.filter_butterworth(500);
+	signal.write_signal((char*) "../sons/GammePianoBasButterworth.wav");
 }
 
 int main() {

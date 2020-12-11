@@ -1,8 +1,9 @@
 #include <math.h>
 #include <iostream>
+#include <functional>
 #include "Signal.h"
-#include "Wave.h"
-#include "utils.h"
+#include "utils/Wave.h"
+#include "utils/utils.h"
 
 Signal::Signal(char *path) {
 	unsigned char* data8;
@@ -94,11 +95,18 @@ int Signal::fft(int dir) {
 	a.resize(N);
 	b.resize(N);
 	for (int k1 = index; k1 < N; ++k1) {
-		signal[0] = 0;
-		a[0] = 0;
-		b[0] = 0;
+		signal[index] = 0;
+		a[index] = 0;
+		b[index] = 0;
 	}
-	double *x = a.data();
+	double *x;
+	if (dir == 1) {
+		a = signal;
+		x = a.data();
+	} else {
+		signal = a;
+		x = signal.data();
+	}
 	double *y = b.data();
 
 	/* Do the bit reversal */
@@ -181,20 +189,37 @@ void Signal::addTones(Tones tones, double start, double end) {
 	}
 }
 
-void Signal::filter_low_pass(double fc) {
+void Signal::filter(std::function<double(void)> t_filter, double fc) {
 	fft(1);
-	int j = N - fc;
 	for (int i = 0; i < N; ++i) {
-		if (i > fc && i < j) {
-			a[i] = 0;
-			b[i] = 0;
-		}
+		a[i] = t_filter(a, fc, i, N);
+
+		b[i] = t_filter(b, fc, i, N);
 	}
 	fft(-1);
 }
 
-void Signal::filter_butterworth(double *input, double *output, double N, double alpha) {
-	// plus la fonction de transition est de grand ordre plus le cutoff est severe
-	// double omegac = 2 * M_PI * fc;
-	// double gain = 1.0 / (pow(r / omegac, 3) + pow(r / omegac, 2) + pow(r / omegac, 1) + pow(r / omegac, 0));
+void Signal::filter_butterworth(double fc){
+	int i;
+	double alpha, alpha2, alpha3;
+	double a, b, c, d;
+	alpha = M_PI * fc / FREQ_ECHANTILLONNAGE;
+	alpha2 = pow(alpha, 2.0);
+	alpha3 = pow(alpha2, 2.0);
+	a = 1.0 + 2.0 * alpha + 2.0 * alpha2 + alpha3;
+	b = -3.0 - (2.0 * alpha) + 2.0 * alpha2 + 3.0 * alpha3;
+	c = 3.0 - (2.0 * alpha) - (2.0 * alpha2) + 3.0 * alpha3;
+	d = -1.0 + 2.0 * alpha - (2.0 * alpha2) + alpha3;
+	/*Output[0] = Input[0];
+	Output[1] = Input[1];
+	Output[2] = Input[2];
+
+	for(i = 3; i < N; i++){
+		Output[i] = (-(b * Output[i-1]) - (c * Output[i-2]) - (d * Output[i-3]) +
+				alpha3 * (Input[i] + 3.0 * Input[i-1] + 3.0 * Input[i-2] + Input[i-3])) / a;
+	}*/
+}
+
+void Signal::write_huffman(char* path) {
+
 }

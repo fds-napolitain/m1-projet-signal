@@ -13,6 +13,7 @@ public:
 	std::vector<double> a; // partie réelle
 	std::vector<double> b; // partie imaginaire
 
+
 	/**
 	 * Consructeur utilisé pour lire un Signal à partir d'un fichier.
 	 * @param path chemin vers un fichier
@@ -72,16 +73,40 @@ public:
 	 */
 	void addTone(Tone tone, double start, double end);
 
+	/**
+	 * Ajouter plusieurs notes sous formes d'accord
+	 * @param tones
+	 * @param start
+	 * @param end
+	 */
 	void addTones(std::vector<Tone> tones, double start, double end);
 
 	/**
-	 * Filtre passe-bas qui applique une atténuation à partir d'une certaine fréquence.
-	 * Utilise le domaine fréquenciel donc
-	 * @param fc 3000 hz pour fc >= 3000
+	 * Filtre passe-bas qui applique une atténuation à partir d'une certaine fréquence
+	 * Plus l'équation est de fort degré plus l'atténuation est rapide
+	 * @param fc fréquence de coupure, ex 300 hz
 	 */
-	void filter_low_pass(double fc);
+	void filter_butterworth(double fc);
 
-	void filter_butterworth(double *input, double *output, double N, double alpha);
+	/**
+	 * Enregistrer le signal sous un format customisé qui permet de compresser sans perte le signal.
+	 * Utilise FFT pour l'analyse fréquenciel
+	 * @param path
+	 */
+	void write_huffman(char *path);
+
+	/**
+	 * Lire le signal sous un format customisé qui permet de compresser sans perte le signal.
+	 * Utilise FFT pour l'analyse fréquenciel
+	 * @param path
+	 */
+	void read_huffman(char *path);
+
+	/**
+	 * Filtre applique une coupure à partir d'une certaine fréquence.
+	 * Utilise le domaine fréquenciel donc
+	 */
+	void filter(std::function<double(void)> t_filter, double fc);
 };
 
 
