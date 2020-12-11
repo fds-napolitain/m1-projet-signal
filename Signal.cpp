@@ -9,6 +9,7 @@ Signal::Signal(char *path) {
 	Wave wave = Wave();
 	wave.read(path);
 	wave.getData8(&data8, &(Signal::N));
+	Signal::FREQ_ECHANTILLONNAGE = wave.sampling_freq;
 	Signal::signal.resize(N);
 	Signal::a.resize(N);
 	Signal::b.resize(N);
@@ -177,8 +178,8 @@ void Signal::filter_low_pass(double fc, double attenuation) {
 	double r = 1 - attenuation;
 	fft(1);
 	for (int i = fc+1; i < N; ++i) {
-		a[i] = a[i] * r;
-		b[i] = b[i] * r;
+		a[i] *= r;
+		b[i] *= r;
 	}
 	fft(-1);
 }

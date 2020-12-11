@@ -58,7 +58,7 @@ void doMajeur() {
  */
 void passeBas() {
 	Signal signal = Signal((char*) "../sons/GammePiano.wav");
-	signal.filter_low_pass(2000, 1);
+	signal.filter_low_pass(1000, 1);
 	signal.write_signal((char*) "../sons/GammePianoBas.wav");
 }
 
@@ -66,6 +66,6 @@ int main() {
 //	la440();
 //	verifDft();
 	doMajeur();
-//	passeBas();
+	passeBas();
 	return 0;
 }

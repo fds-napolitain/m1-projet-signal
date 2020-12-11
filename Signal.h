@@ -6,7 +6,7 @@
 
 class Signal {
 public:
-	const double FREQ_ECHANTILLONNAGE = 44100;
+	double FREQ_ECHANTILLONNAGE = 44100;
 	int N = 0; // taille du signal (duree * FREQ_ECHANTILLONNAGE
 	int duree; // durée du signal
 	std::vector<double> signal; // tableau d'amplitudes sur le temps
