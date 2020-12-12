@@ -70,7 +70,7 @@ void butterWorth() {
 }
 
 int main() {
-//	la440();
+	la440();
 //	verifDft();
 	doMajeur();
 	passeBas();

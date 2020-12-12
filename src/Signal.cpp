@@ -191,11 +191,12 @@ void Signal::addTones(Tones tones, double start, double end) {
 
 void Signal::filter_low_pass(double fc) {
 	fft(1);
-	int j = N - fc;
-	for (int i = 0; i < N; ++i) {
-		if (i > fc && i < j) {
+	for (int i = 0; i < N/2; ++i) {
+		if (i > fc) {
 			a[i] = 0;
+			a[N-i] = 0;
 			b[i] = 0;
+			b[N-i] = 0;
 		}
 	}
 	fft(-1);
