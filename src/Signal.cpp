@@ -189,12 +189,14 @@ void Signal::addTones(Tones tones, double start, double end) {
 	}
 }
 
-void Signal::filter(std::function<double(void)> t_filter, double fc) {
+void Signal::filter_low_pass(double fc) {
 	fft(1);
+	int j = N - fc;
 	for (int i = 0; i < N; ++i) {
-		a[i] = t_filter(a, fc, i, N);
-
-		b[i] = t_filter(b, fc, i, N);
+		if (i > fc && i < j) {
+			a[i] = 0;
+			b[i] = 0;
+		}
 	}
 	fft(-1);
 }

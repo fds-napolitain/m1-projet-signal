@@ -12,13 +12,6 @@ public:
 	 * @return
 	 */
 	static double low_pass(double fc);
-
-	/**
-	 * fonction passe bas
-	 * @param fc fréquence a couper
-	 * @return
-	 */
-	static double low_pass(double fc, double i);
 };
 
 

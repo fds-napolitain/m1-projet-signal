@@ -105,8 +105,9 @@ public:
 	/**
 	 * Filtre applique une coupure à partir d'une certaine fréquence.
 	 * Utilise le domaine fréquenciel donc
+	 * @param fc fréquence de coupure
 	 */
-	void filter(std::function<double(void)> t_filter, double fc);
+	void filter_low_pass(double fc);
 };
 
 
