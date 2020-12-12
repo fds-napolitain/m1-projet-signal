@@ -108,6 +108,13 @@ public:
 	 * @param fc fréquence de coupure
 	 */
 	void filter_low_pass(double fc);
+
+	/**
+	 * Filtre applique une coupure à partir d'une certaine fréquence.
+	 * Utilise le domaine fréquenciel donc
+	 * @param fc fréquence de coupure
+	 */
+	void filter_high_pass(double fc);
 };
 
 

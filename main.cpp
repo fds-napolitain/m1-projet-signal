@@ -57,22 +57,25 @@ void doMajeur() {
 /**
  * Test du filtre passe bas sur la piano
  */
-void passeBas() {
-	Signal signal = Signal((char*) "../sons/GammePiano.wav");
-	signal.filter_low_pass(1000);
-	signal.write_signal((char*) "../sons/GammePianoBas.wav");
+void fftFilters() {
+	Signal passeBas = Signal((char*) "../sons/GammePiano.wav");
+	passeBas.filter_low_pass(1000);
+	passeBas.write_signal((char*) "../sons/GammePianoBas.wav");
+	Signal passeHaut = Signal((char*) "../sons/GammePiano.wav");
+	passeHaut.filter_high_pass(1000);
+	passeHaut.write_signal((char*) "../sons/GammePianoHaut.wav");
 }
 
-void butterWorth() {
+void temporalFilters() {
 	Signal signal = Signal((char*) "../sons/GammePiano.wav");
 	signal.filter_butterworth(500);
 	signal.write_signal((char*) "../sons/GammePianoBasButterworth.wav");
 }
 
 int main() {
-	la440();
+//	la440();
 //	verifDft();
-	doMajeur();
-	passeBas();
+//	doMajeur();
+	fftFilters();
 	return 0;
 }
