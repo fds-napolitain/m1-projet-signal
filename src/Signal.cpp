@@ -191,8 +191,10 @@ void Signal::addTones(Tones tones, double start, double end) {
 
 void Signal::filter_low_pass(double fc) {
 	fft(1);
+	double bin_width = FREQ_ECHANTILLONNAGE / N; // j'ai bin_width fréquences dans un i-ème bin.
+	double bin = fc / bin_width; // cherche le i-ème bin qui contient fc
 	for (int i = 0; i < N/2; ++i) {
-		if (i > fc) {
+		if (i > bin) { // si i-ème bin > fc alors on a notre i correspond au bin qui content la fréquence fc
 			a[i] = 0;
 			a[N-i] = 0;
 			b[i] = 0;
