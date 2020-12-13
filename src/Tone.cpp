@@ -4,7 +4,7 @@
 using namespace std;
 
 Tone::Tone(char *tone) {
-	freq = 440.0;
+	frequency = 440.0;
 	amplitude = 1.0;
 	phase = 0.0;
 	int coef = 0;
@@ -33,10 +33,10 @@ Tone::Tone(char *tone) {
 	}
 	current = tone;
 	if (coef != 0) {
-		incrementSemiTone(freq, (double) coef);
+		incrementSemiTone(frequency, (double) coef);
 	}
 }
 
 void Tone::incrementSemiTone(double freq, double i) {
-	this->freq = freq * pow(pow(2.0, (1.0/12.0)), i);
+	this->frequency = freq * pow(pow(2.0, (1.0 / 12.0)), i);
 }

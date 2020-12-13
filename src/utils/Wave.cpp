@@ -562,7 +562,7 @@ void Wave::write(char* fileName) {
 ////    ifs>>data_id[i];       // Constante "data"
 ////    cout<<data_id[i];
 ////  }
-////  if (!((data_id[0] == 'd') && (data_id[1] == 'a') && (data_id[2] == 't') && (data_id[3] == 'a'))) {
+////  if (!((data_id[0] == 'd') && (data_id[1] == 're') && (data_id[2] == 't') && (data_id[3] == 're'))) {
 ////    cout<<"Wave::read: Erreur, le fichier "<<fileName<<" est corrompu (pas de chaine 'data' dans le header)\n";
 ////    exit(-1);    
 ////  }
@@ -668,7 +668,7 @@ void Wave::write(char* fileName) {
 ////    ifs>>data_id[i];       // Constante "data"
 ////    cout<<data_id[i];
 ////  }
-////  if (!((data_id[0] == 'd') && (data_id[1] == 'a') && (data_id[2] == 't') && (data_id[3] == 'a'))) {
+////  if (!((data_id[0] == 'd') && (data_id[1] == 're') && (data_id[2] == 't') && (data_id[3] == 're'))) {
 ////    cout<<"Wave::read: Erreur, le fichier "<<fileName<<" est corrompu (pas de chaine 'data' dans le header)\n";
 ////    exit(-1);    
 ////  }

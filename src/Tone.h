@@ -5,12 +5,12 @@
 
 class Tone {
 public:
-	double freq;
+	double frequency;
 	double amplitude;
 	double phase;
 
 	/**
-	 * Constructeur d'une note, avec freq comme attribut pour la fréquence.
+	 * Constructeur d'une note, avec frequency comme attribut pour la fréquence.
 	 * @param tone sous format "A4"
 	 */
 	Tone(char *tone);

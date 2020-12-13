@@ -8,7 +8,7 @@ class Effects {
 public:
 	/**
 	 * fonction passe bas
-	 * @param fc fréquence a couper
+	 * @param fc fréquence re couper
 	 * @return
 	 */
 	static double low_pass(double fc);

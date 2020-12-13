@@ -59,11 +59,17 @@ void doMajeur() {
  */
 void fftFilters() {
 	Signal passeBas = Signal((char*) "../sons/GammePiano.wav");
-	passeBas.filter_low_pass(1000);
+	passeBas.filter_low_pass(1000, 1);
 	passeBas.write_signal((char*) "../sons/GammePianoBas.wav");
+	Signal passeBasMoyen = Signal((char*) "../sons/GammePiano.wav");
+	passeBasMoyen.filter_low_pass(1000, 0.5);
+	passeBasMoyen.write_signal((char*) "../sons/GammePianoBasMoyen.wav");
 	Signal passeHaut = Signal((char*) "../sons/GammePiano.wav");
-	passeHaut.filter_high_pass(1000);
+	passeHaut.filter_high_pass(1000, 1);
 	passeHaut.write_signal((char*) "../sons/GammePianoHaut.wav");
+	Signal passeBande = Signal((char*) "../sons/GammePiano.wav");
+	passeBande.filter_pass_band(440, 1760, 1);
+	passeBande.write_signal((char*) "../sons/GammePianoPasseBande.wav");
 }
 
 void temporalFilters() {
@@ -73,7 +79,7 @@ void temporalFilters() {
 }
 
 int main() {
-//	la440();
+	la440();
 //	verifDft();
 //	doMajeur();
 	fftFilters();

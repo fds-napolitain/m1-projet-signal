@@ -10,8 +10,9 @@ public:
 	int N = 0; // taille du signal (duree * FREQ_ECHANTILLONNAGE
 	int duree; // durée du signal
 	std::vector<double> signal; // tableau d'amplitudes sur le temps
-	std::vector<double> a; // partie réelle
-	std::vector<double> b; // partie imaginaire
+	std::vector<double> re; // partie réelle
+	std::vector<double> im; // partie imaginaire
+	double bin_width; // taille du bin (par exemple, 0.3hz) utilisé pour trouver re partir d'une fréquence de coupure la fréquence de coupure numérique (bin)
 
 
 	/**
@@ -57,7 +58,7 @@ public:
 	 *	dir = -1 gives reverse transform
 	 *	You MUST compute first the value m such that
 	 *	2^(m-1) < n (size of your signal) <= 2^m
-	 *	allocate a new signal of nm=2^m values
+	 *	allocate re new signal of nm=2^m values
 	 *	then fill the n first values of this new signal
 	 *   with your signal and fill the rest with 0
 	 *	WARNING : you must pass m, not nm !!!
@@ -106,15 +107,25 @@ public:
 	 * Filtre applique une coupure à partir d'une certaine fréquence.
 	 * Utilise le domaine fréquenciel donc
 	 * @param fc fréquence de coupure
+	 * @param attenuation 1 => coupe tout
 	 */
-	void filter_low_pass(double fc);
+	void filter_low_pass(double fc, double attenuation);
 
 	/**
 	 * Filtre applique une coupure à partir d'une certaine fréquence.
 	 * Utilise le domaine fréquenciel donc
 	 * @param fc fréquence de coupure
+	 * @param attenuation 1 => coupe tout
 	 */
-	void filter_high_pass(double fc);
+	void filter_high_pass(double fc, double attenuation);
+
+	/**
+	 * Filtre passe bande entre fc1 et fc2.
+	 * @param fc1
+	 * @param fc2
+	 * @param attenuation 1 => coupe tout
+	 */
+	void filter_pass_band(double fc1, double fc2, double attenuation);
 };
 
 

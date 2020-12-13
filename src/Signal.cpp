@@ -13,8 +13,8 @@ Signal::Signal(char *path) {
 	Signal::FREQ_ECHANTILLONNAGE = wave.sampling_freq;
 	Signal::signal.resize(N);
 	Signal::duree = Signal::N / Signal::FREQ_ECHANTILLONNAGE;
-	Signal::a.resize(N);
-	Signal::b.resize(N);
+	Signal::re.resize(N);
+	Signal::im.resize(N);
 	for (int i = 0; i < N; ++i) {
 		Signal::signal[i] = (double) data8[i]/127.5 - 1.0;
 	}
@@ -24,16 +24,16 @@ Signal::Signal(int duree) {
 	Signal::N = duree * FREQ_ECHANTILLONNAGE;
 	Signal::duree = duree;
 	Signal::signal.resize(N);
-	Signal::a.resize(N);
-	Signal::b.resize(N);
+	Signal::re.resize(N);
+	Signal::im.resize(N);
 }
 
 Signal::Signal(const Signal &oldSignal) noexcept {
 	Signal newSignal = Signal(oldSignal.N);
 	for (int i = 0; i < sizeof(oldSignal.N); ++i) {
 		newSignal.signal[i] = oldSignal.signal[i];
-		newSignal.a[i] = oldSignal.a[i];
-		newSignal.b[i] = oldSignal.b[i];
+		newSignal.re[i] = oldSignal.re[i];
+		newSignal.im[i] = oldSignal.im[i];
 	}
 }
 
@@ -52,12 +52,12 @@ void Signal::dft() {
 	double omega, theta = 0.0;
 	for (int k = 0; k < N; k++) {
 		omega = deuxPiN * (double) k;
-		a[k] = 0.0;
-		b[k] = 0.0;
+		re[k] = 0.0;
+		im[k] = 0.0;
 		for (int n = 0; n < N; n++) {
 			theta = omega * (double) n;
-			a[k] += signal[n] * cos(theta);
-			b[k] -= signal[n] * sin(theta);
+			re[k] += signal[n] * cos(theta);
+			im[k] -= signal[n] * sin(theta);
 		}
 	}
 }
@@ -71,9 +71,10 @@ void Signal::idft() {
 		signal[n] = 0.0;
 		for (int k = 0; k < N; k++) {
 			theta = omega * (double) k;
-			signal[n] += 1 / (double) N * (a[k]*cos(theta) - b[k]*sin(theta));
+			signal[n] += 1 / (double) N * (re[k] * cos(theta) - im[k] * sin(theta));
 		}
 	}
+	bin_width = FREQ_ECHANTILLONNAGE / N; // j'ai bin_width fréquences dans un i-ème bin.
 }
 
 int Signal::fft(int dir) {
@@ -92,22 +93,22 @@ int Signal::fft(int dir) {
 	/* Calculate the number of points */
 	N = n;
 	signal.resize(N);
-	a.resize(N);
-	b.resize(N);
+	re.resize(N);
+	im.resize(N);
 	for (int k1 = index; k1 < N; ++k1) {
 		signal[index] = 0;
-		a[index] = 0;
-		b[index] = 0;
+		re[index] = 0;
+		im[index] = 0;
 	}
 	double *x;
 	if (dir == 1) {
-		a = signal;
-		x = a.data();
+		re = signal;
+		x = re.data();
 	} else {
-		signal = a;
+		signal = re;
 		x = signal.data();
 	}
-	double *y = b.data();
+	double *y = im.data();
 
 	/* Do the bit reversal */
 	i2 = n >> 1;
@@ -164,19 +165,23 @@ int Signal::fft(int dir) {
 			x[i] /= n;
 			y[i] /= n;
 		}
+		bin_width = FREQ_ECHANTILLONNAGE / N; // j'ai bin_width fréquences dans un i-ème bin.
 	}
 
 	return(1);
 }
 
+// https://www.gaussianwaves.com/2015/11/interpreting-fft-results-obtaining-magnitude-and-phase-information/
+// x(t) = 0.5cos(2PI*i*440/44100 + 0)
 void Signal::addTone(Tone tone, double start, double end) {
-	double omega = tone.amplitude * 2.0 * M_PI * tone.freq / (double) FREQ_ECHANTILLONNAGE;
-	int fin = end * FREQ_ECHANTILLONNAGE;
-	for (int i = start * FREQ_ECHANTILLONNAGE; i < fin; ++i) {
-		signal[i] = sin((double) i * omega);
+	double alpha = 2.0 * M_PI * tone.frequency / FREQ_ECHANTILLONNAGE;
+	double phase = 0;
+	for (int i = 0; i < N; ++i) {
+		signal[i] = tone.amplitude * sin((double) i * alpha + tone.phase);
 	}
 }
 
+// https://www.dsprelated.com/showarticle/787.php
 void Signal::addTones(Tones tones, double start, double end) {
 	std::vector<double> omega (tones.size());
 	for (int i = 0; i < start * FREQ_ECHANTILLONNAGE; ++i) {
@@ -189,31 +194,47 @@ void Signal::addTones(Tones tones, double start, double end) {
 	}
 }
 
-void Signal::filter_low_pass(double fc) {
+void Signal::filter_low_pass(double fc, double attenuation) { // F(f*g) = re[0..N] re'[0..N] (g)
 	fft(1);
-	double bin_width = FREQ_ECHANTILLONNAGE / N; // j'ai bin_width fréquences dans un i-ème bin.
 	double bin = fc / bin_width; // cherche le i-ème bin qui contient fc
+	double r = 1 - attenuation;
 	for (int i = 0; i < N/2; ++i) {
-		if (i > bin) { // si i-ème bin > fc alors on a notre i correspond au bin qui content la fréquence fc
-			a[i] = 0;
-			a[N-i] = 0;
-			b[i] = 0;
-			b[N-i] = 0;
+		if (i > bin) { // si i-ème bin > fc alors on re notre i correspond au bin qui content la fréquence fc
+			re[i] *= r;
+			re[N - i] *= r;
+			im[i] *= r;
+			im[N - i] *= r;
 		}
 	}
 	fft(-1);
 }
 
-void Signal::filter_high_pass(double fc) {
+void Signal::filter_high_pass(double fc, double attenuation) {
 	fft(1);
-	double bin_width = FREQ_ECHANTILLONNAGE / N; // j'ai bin_width fréquences dans un i-ème bin.
 	double bin = fc / bin_width; // cherche le i-ème bin qui contient fc
+	double r = 1 - attenuation;
 	for (int i = 0; i < N/2; ++i) {
-		if (i < bin) { // si i-ème bin > fc alors on a notre i correspond au bin qui content la fréquence fc
-			a[i] = 0;
-			a[N-i] = 0;
-			b[i] = 0;
-			b[N-i] = 0;
+		if (i < bin) { // si i-ème bin > fc alors on re notre i correspond au bin qui content la fréquence fc
+			re[i] *= r;
+			re[N - i] *= r;
+			im[i] *= r;
+			im[N - i] *= r;
+		}
+	}
+	fft(-1);
+}
+
+void Signal::filter_pass_band(double fc1, double fc2, double attenuation) {
+	fft(1);
+	double bin_1 = fc1 / bin_width;
+	double bin_2 = fc2 / bin_width;
+	double r = 1 - attenuation;
+	for (int i = 0; i < N/2; ++i) {
+		if (!(i > bin_1 && i < bin_2)) { // si i-ème bin > fc alors on re notre i correspond au bin qui content la fréquence fc
+			re[i] *= r;
+			re[N - i] *= r;
+			im[i] *= r;
+			im[N - i] *= r;
 		}
 	}
 	fft(-1);
@@ -235,8 +256,8 @@ void Signal::filter_butterworth(double fc){
 	Output[2] = Input[2];
 
 	for(i = 3; i < N; i++){
-		Output[i] = (-(b * Output[i-1]) - (c * Output[i-2]) - (d * Output[i-3]) +
-				alpha3 * (Input[i] + 3.0 * Input[i-1] + 3.0 * Input[i-2] + Input[i-3])) / a;
+		Output[i] = (-(im * Output[i-1]) - (c * Output[i-2]) - (d * Output[i-3]) +
+				alpha3 * (Input[i] + 3.0 * Input[i-1] + 3.0 * Input[i-2] + Input[i-3])) / re;
 	}*/
 }
 
