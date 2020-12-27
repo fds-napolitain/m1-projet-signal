@@ -1,8 +1,6 @@
 #include <cmath>
 #include "Tone.h"
 
-using namespace std;
-
 Tone::Tone(char *tone) {
 	frequency = 440.0;
 	amplitude = 1.0;

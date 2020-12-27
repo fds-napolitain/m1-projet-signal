@@ -198,13 +198,17 @@ void Signal::filter_low_pass(double fc, double attenuation) { // F(f*g) = re[0..
 	fft(1);
 	double bin = fc / bin_width; // cherche le i-ème bin qui contient fc
 	double r = 1 - attenuation;
+	double omegac = 2*M_PI*fc;
+	double omegac2 = omegac*omegac;
 	for (int i = 0; i < N/2; ++i) {
-		if (i > bin) { // si i-ème bin > fc alors on re notre i correspond au bin qui content la fréquence fc
-			re[i] *= r;
-			re[N - i] *= r;
-			im[i] *= r;
-			im[N - i] *= r;
-		}
+		double omega = 2*M_PI*i;
+		double omega2 = omega*omega;
+		double reFilter = (omegac2 / omegac2 + omega2);
+		double imFilter = (-omega*omegac / (omega2 + omegac2));
+		re[i] = re[i] * reFilter - im[i] * imFilter;
+		re[N - i] = re[i] * reFilter - im[i] * imFilter;
+		im[i] = re[i] * reFilter + im[i] * imFilter;
+		im[N - i] = re[i] * reFilter + im[i] * imFilter;
 	}
 	fft(-1);
 }
@@ -236,6 +240,30 @@ void Signal::filter_pass_band(double fc1, double fc2, double attenuation) {
 			im[i] *= r;
 			im[N - i] *= r;
 		}
+	}
+	fft(-1);
+}
+
+void Signal::filter_reject_band(double fc1, double fc2, double attenuation) {
+	fft(1);
+	double bin_1 = fc1 / bin_width;
+	double bin_2 = fc2 / bin_width;
+	double r = 1 - attenuation;
+	for (int i = 0; i < N/2; ++i) {
+		if (!(i < bin_1 && i > bin_2)) { // si i-ème bin > fc alors on re notre i correspond au bin qui content la fréquence fc
+			re[i] *= r;
+			re[N - i] *= r;
+			im[i] *= r;
+			im[N - i] *= r;
+		}
+	}
+	fft(-1);
+}
+
+void Signal::delay(double n) {
+	fft(1);
+	for (int i = 0; i < N / 2; ++i) {
+
 	}
 	fft(-1);
 }

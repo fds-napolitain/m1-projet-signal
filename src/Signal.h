@@ -126,6 +126,10 @@ public:
 	 * @param attenuation 1 => coupe tout
 	 */
 	void filter_pass_band(double fc1, double fc2, double attenuation);
+
+	void filter_reject_band(double fc1, double fc2, double attenuation);
+
+	void delay(double n);
 };
 
 
