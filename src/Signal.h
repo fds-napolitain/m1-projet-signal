@@ -130,6 +130,14 @@ public:
 	void filter_reject_band(double fc1, double fc2, double attenuation);
 
 	void delay(double n);
+
+	void filter_low_pass2(double fc);
+
+	/**
+	 * Transposer de i demi tons
+	 * @param i Nombre de demi tons
+	 */
+	void transposition(double i);
 };
 
 

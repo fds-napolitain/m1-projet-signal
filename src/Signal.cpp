@@ -65,12 +65,12 @@ void Signal::dft() {
 void Signal::idft() {
 	std::cout << "Transformation discrète inverse de fourier\n";
 	double deuxPiN = 2.0 * M_PI / (double) N;
-	double omega, theta = 0.0;
+	double ω, theta = 0.0;
 	for (int n = 0; n < N; n++) {
-		omega = deuxPiN * (double) n;
+		ω = deuxPiN * (double) n;
 		signal[n] = 0.0;
 		for (int k = 0; k < N; k++) {
-			theta = omega * (double) k;
+			theta = ω * (double) k;
 			signal[n] += 1 / (double) N * (re[k] * cos(theta) - im[k] * sin(theta));
 		}
 	}
@@ -198,17 +198,32 @@ void Signal::filter_low_pass(double fc, double attenuation) { // F(f*g) = re[0..
 	fft(1);
 	double bin = fc / bin_width; // cherche le i-ème bin qui contient fc
 	double r = 1 - attenuation;
-	double omegac = 2*M_PI*fc;
-	double omegac2 = omegac*omegac;
+	for (int i = bin; i < N/2; ++i) {
+		re[i] *= r;
+		re[N - i] *= r;
+		im[i] *= r;
+		im[N - i] *= r;
+	}
+	fft(-1);
+}
+
+void Signal::filter_low_pass2(double fc) {
+	fft(1);
+	double ωc = 2 * M_PI * fc;
+	double ωc2 = ωc * ωc;
 	for (int i = 0; i < N/2; ++i) {
-		double omega = 2*M_PI*i;
-		double omega2 = omega*omega;
-		double reFilter = (omegac2 / omegac2 + omega2);
-		double imFilter = (-omega*omegac / (omega2 + omegac2));
-		re[i] = re[i] * reFilter - im[i] * imFilter;
-		re[N - i] = re[i] * reFilter - im[i] * imFilter;
-		im[i] = re[i] * reFilter + im[i] * imFilter;
-		im[N - i] = re[i] * reFilter + im[i] * imFilter;
+		double ω = 2 * M_PI * i;
+		double ω2 = ω * ω;
+		double reFilter = ωc2 / (ωc2 + ω2);
+		double imFilter = -ω * ωc / (ω2 + ωc2);
+		double reI = re[i];
+		double imI = im[i];
+		double reNI = re[N - i];
+		double imNI = im[N - i];
+		re[i] = reI * reFilter - imI * imFilter; // aa' - bb'
+		re[N - i] = reNI * reFilter - imNI * imFilter;
+		im[i] = reI * imFilter + imI * reFilter; // ab' + a'b
+		im[N - i] = reNI * imFilter + imNI * reFilter;
 	}
 	fft(-1);
 }
@@ -217,13 +232,11 @@ void Signal::filter_high_pass(double fc, double attenuation) {
 	fft(1);
 	double bin = fc / bin_width; // cherche le i-ème bin qui contient fc
 	double r = 1 - attenuation;
-	for (int i = 0; i < N/2; ++i) {
-		if (i < bin) { // si i-ème bin > fc alors on re notre i correspond au bin qui content la fréquence fc
-			re[i] *= r;
-			re[N - i] *= r;
-			im[i] *= r;
-			im[N - i] *= r;
-		}
+	for (int i = 0; i < bin; ++i) {
+		re[i] *= r;
+		re[N - i] *= r;
+		im[i] *= r;
+		im[N - i] *= r;
 	}
 	fft(-1);
 }
@@ -249,13 +262,11 @@ void Signal::filter_reject_band(double fc1, double fc2, double attenuation) {
 	double bin_1 = fc1 / bin_width;
 	double bin_2 = fc2 / bin_width;
 	double r = 1 - attenuation;
-	for (int i = 0; i < N/2; ++i) {
-		if (!(i < bin_1 && i > bin_2)) { // si i-ème bin > fc alors on re notre i correspond au bin qui content la fréquence fc
-			re[i] *= r;
-			re[N - i] *= r;
-			im[i] *= r;
-			im[N - i] *= r;
-		}
+	for (int i = bin_1; i < bin_2; ++i) {
+		re[i] *= r;
+		re[N - i] *= r;
+		im[i] *= r;
+		im[N - i] *= r;
 	}
 	fft(-1);
 }
@@ -287,6 +298,23 @@ void Signal::filter_butterworth(double fc){
 		Output[i] = (-(im * Output[i-1]) - (c * Output[i-2]) - (d * Output[i-3]) +
 				alpha3 * (Input[i] + 3.0 * Input[i-1] + 3.0 * Input[i-2] + Input[i-3])) / re;
 	}*/
+}
+
+void Signal::transposition(double i) {
+	fft(1);
+	Signal recopy = Signal(*this);
+	double t = pow(pow(2.0, (1.0/12.0)), i);
+	for (int j = 0; j < N/2; ++j) {
+		double freq = (bin_width * j) * t; // freq * incrementSemiTone (voir Tone.cpp)
+		int h = freq / bin_width;
+		if (h < N/2 && h > 0) {
+			re[h] = recopy.re[j];
+			re[h - N] = recopy.re[j - N];
+			im[h] = recopy.im[j];
+			im[h - N] = recopy.im[j - N];
+		}
+	}
+	fft(-1);
 }
 
 void Signal::write_huffman(char* path) {

@@ -35,6 +35,13 @@ void verifDft() {
 	}
 }
 
+void laChromatique() {
+	Signal signal1 = Signal(4.0);
+	Tone T_A4 = Tone((char*) "A4");
+	signal1.addTone(T_A4, 0, 0.5);
+
+}
+
 /**
  * Création du Do majeur
  */
@@ -59,17 +66,20 @@ void doMajeur() {
  */
 void fftFilters() {
 	Signal passeBas = Signal((char*) "../sons/GammePiano.wav");
-	passeBas.filter_low_pass(1000, 1);
+	passeBas.filter_low_pass2(1000);
 	passeBas.write_signal((char*) "../sons/GammePianoBas.wav");
-	Signal passeBasMoyen = Signal((char*) "../sons/GammePiano.wav");
-	passeBasMoyen.filter_low_pass(1000, 0.5);
-	passeBasMoyen.write_signal((char*) "../sons/GammePianoBasMoyen.wav");
 	Signal passeHaut = Signal((char*) "../sons/GammePiano.wav");
 	passeHaut.filter_high_pass(1000, 1);
 	passeHaut.write_signal((char*) "../sons/GammePianoHaut.wav");
+	Signal passeHaut2 = Signal((char*) "../sons/la440.wav");
+	passeHaut2.filter_high_pass(1000, 1);
+	passeHaut2.write_signal((char*) "../sons/la440bas.wav");
 	Signal passeBande = Signal((char*) "../sons/GammePiano.wav");
 	passeBande.filter_pass_band(440, 1760, 1);
 	passeBande.write_signal((char*) "../sons/GammePianoPasseBande.wav");
+	Signal transpose = Signal((char*) "../sons/GammePiano.wav");
+	transpose.transposition(12);
+	transpose.write_signal((char*) "../sons/GammePianoTranspose.wav");
 }
 
 void temporalFilters() {
