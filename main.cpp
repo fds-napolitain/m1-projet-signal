@@ -78,7 +78,7 @@ void fftFilters() {
 	passeBande.filter_pass_band(440, 1760, 1);
 	passeBande.write_signal((char*) "../sons/GammePianoPasseBande.wav");
 	Signal rejecteurBande = Signal((char*) "../sons/GammePiano.wav");
-	rejecteurBande.filter_pass_band(440, 1760, 1);
+	rejecteurBande.filter_reject_band(440, 1760, 1);
 	rejecteurBande.write_signal((char*) "../sons/GammePianoRejecteurBande.wav");
 	Signal transpose = Signal((char*) "../sons/GammePiano.wav");
 	transpose.transposition(-12);

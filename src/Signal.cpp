@@ -32,6 +32,7 @@ Signal::Signal(const Signal &oldSignal) noexcept {
 	signal = oldSignal.signal;
 	N = oldSignal.N;
 	duree = oldSignal.duree;
+	FREQ_ECHANTILLONNAGE = oldSignal.FREQ_ECHANTILLONNAGE;
 	bin_width = oldSignal.bin_width;
 	re = oldSignal.re;
 	im = oldSignal.im;
@@ -263,9 +264,9 @@ void Signal::filter_reject_band(double fc1, double fc2, double attenuation) {
 	fft(1);
 	for (int i = 0; i < N / 2; ++i) {
 		re[i] -= sicopy.re[i];
-		re[i - N] -= sicopy.re[i - N];
+		re[N - i] -= sicopy.re[N - i];
 		im[i] -= sicopy.im[i];
-		im[i - N] -= sicopy.im[i - N];
+		im[N - i] -= sicopy.im[N - i];
 	}
 	fft(-1);
 }
@@ -278,7 +279,7 @@ void Signal::delay(double n) {
 	fft(-1);
 }
 
-void Signal::filter_butterworth(double fc){
+void Signal::filter_butterworth(double fc) {
 	int i;
 	double alpha, alpha2, alpha3;
 	double a, b, c, d;
@@ -303,11 +304,13 @@ void Signal::transposition(double i) {
 	fft(1);
 	std::vector<double> recopy = re;
 	std::vector<double> imcopy = im;
-	double t = pow(2.0, 1.0/12.0*i);
-	for (int j = 0; j < N; ++j) {
-		int h = (int) (j * t) % N;
+	double t = pow(2.0, i/12.0); // (2**(1/12))**i = 2**(1/12*i) = 2**(i/12); voir Tone.cpp:incrementSemiTone
+	for (int j = 0; j < N/2; ++j) {
+		int h = (int) (j * t) % (N % 2);
 		re[j] = recopy[h];
+		re[N - j] = recopy[N - h];
 		im[j] = imcopy[h];
+		im[N - j] = imcopy[N - h];
 	}
 	fft(-1);
 }
