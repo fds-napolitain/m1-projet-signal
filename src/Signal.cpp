@@ -243,20 +243,29 @@ void Signal::filter_high_pass(double fc, double attenuation) {
 
 void Signal::filter_pass_band(double fc1, double fc2, double attenuation) {
 	fft(1);
-	Signal sicopy = Signal(*this);
+	double bin_1 = fc1 / bin_width;
+	double bin_2 = fc2 / bin_width;
+	double r = 1 - attenuation;
+	for (int i = 0; i < N/2; ++i) {
+		if (!(i > bin_1 && i < bin_2)) { // si i-ème bin > fc alors on re notre i correspond au bin qui content la fréquence fc
+			re[i] *= r;
+			re[N - i] *= r;
+			im[i] *= r;
+			im[N - i] *= r;
+		}
+	}
 	fft(-1);
 }
 
 void Signal::filter_reject_band(double fc1, double fc2, double attenuation) {
+	Signal sicopy = Signal(*this);
+	sicopy.filter_pass_band(fc1, fc2, attenuation);
 	fft(1);
-	double bin_1 = fc1 / bin_width;
-	double bin_2 = fc2 / bin_width;
-	double r = 1 - attenuation;
-	for (int i = bin_1; i < bin_2; ++i) {
-		re[i] *= r;
-		re[N - i] *= r;
-		im[i] *= r;
-		im[N - i] *= r;
+	for (int i = 0; i < N / 2; ++i) {
+		re[i] -= sicopy.re[i];
+		re[i - N] -= sicopy.re[i - N];
+		im[i] -= sicopy.im[i];
+		im[i - N] -= sicopy.im[i - N];
 	}
 	fft(-1);
 }
