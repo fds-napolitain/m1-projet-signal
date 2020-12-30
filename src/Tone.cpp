@@ -36,5 +36,5 @@ Tone::Tone(char *tone) {
 }
 
 void Tone::incrementSemiTone(double freq, double i) {
-	this->frequency = freq * pow(pow(2.0, (1.0 / 12.0)), i);
+	this->frequency = freq * pow(2.0, 1.0/12.0*i);
 }

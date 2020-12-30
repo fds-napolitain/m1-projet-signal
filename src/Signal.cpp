@@ -302,17 +302,13 @@ void Signal::filter_butterworth(double fc){
 
 void Signal::transposition(double i) {
 	fft(1);
-	Signal recopy = Signal(*this);
-	double t = pow(pow(2.0, (1.0/12.0)), i);
-	for (int j = 0; j < N/2; ++j) {
-		double freq = (bin_width * j) * t; // freq * incrementSemiTone (voir Tone.cpp)
-		int h = freq / bin_width;
-		if (h < N/2 && h > 0) {
-			re[h] = recopy.re[j];
-			re[h - N] = recopy.re[j - N];
-			im[h] = recopy.im[j];
-			im[h - N] = recopy.im[j - N];
-		}
+	std::vector<double> recopy = re;
+	std::vector<double> imcopy = im;
+	double t = pow(2.0, 1.0/12.0*i);
+	for (int j = 0; j < N; ++j) {
+		int h = (int) (j * t) % N;
+		re[j] = recopy[h];
+		im[j] = imcopy[h];
 	}
 	fft(-1);
 }
