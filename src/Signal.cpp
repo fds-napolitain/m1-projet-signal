@@ -29,12 +29,12 @@ Signal::Signal(int duree) {
 }
 
 Signal::Signal(const Signal &oldSignal) noexcept {
-	Signal newSignal = Signal(oldSignal.N);
-	for (int i = 0; i < sizeof(oldSignal.N); ++i) {
-		newSignal.signal[i] = oldSignal.signal[i];
-		newSignal.re[i] = oldSignal.re[i];
-		newSignal.im[i] = oldSignal.im[i];
-	}
+	signal = oldSignal.signal;
+	N = oldSignal.N;
+	duree = oldSignal.duree;
+	bin_width = oldSignal.bin_width;
+	re = oldSignal.re;
+	im = oldSignal.im;
 }
 
 void Signal::write_signal(char *path) {
@@ -243,17 +243,7 @@ void Signal::filter_high_pass(double fc, double attenuation) {
 
 void Signal::filter_pass_band(double fc1, double fc2, double attenuation) {
 	fft(1);
-	double bin_1 = fc1 / bin_width;
-	double bin_2 = fc2 / bin_width;
-	double r = 1 - attenuation;
-	for (int i = 0; i < N/2; ++i) {
-		if (!(i > bin_1 && i < bin_2)) { // si i-ème bin > fc alors on re notre i correspond au bin qui content la fréquence fc
-			re[i] *= r;
-			re[N - i] *= r;
-			im[i] *= r;
-			im[N - i] *= r;
-		}
-	}
+	Signal sicopy = Signal(*this);
 	fft(-1);
 }
 
