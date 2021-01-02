@@ -66,12 +66,12 @@ void Signal::dft() {
 void Signal::idft() {
 	std::cout << "Transformation discrète inverse de fourier\n";
 	double deuxPiN = 2.0 * M_PI / (double) N;
-	double ω, theta = 0.0;
+	double omega, theta = 0.0;
 	for (int n = 0; n < N; n++) {
-		ω = deuxPiN * (double) n;
+		omega = deuxPiN * (double) n;
 		signal[n] = 0.0;
 		for (int k = 0; k < N; k++) {
-			theta = ω * (double) k;
+			theta = omega * (double) k;
 			signal[n] += 1 / (double) N * (re[k] * cos(theta) - im[k] * sin(theta));
 		}
 	}
@@ -210,13 +210,13 @@ void Signal::filter_low_pass(double fc, double attenuation) { // F(f*g) = re[0..
 
 void Signal::filter_low_pass2(double fc) {
 	fft(1);
-	double ωc = 2 * M_PI * fc;
-	double ωc2 = ωc * ωc;
+	double omegac = 2 * M_PI * fc;
+	double omegac2 = omegac * omegac;
 	for (int i = 0; i < N/2; ++i) {
-		double ω = 2 * M_PI * i;
-		double ω2 = ω * ω;
-		double reFilter = ωc2 / (ωc2 + ω2);
-		double imFilter = -ω * ωc / (ω2 + ωc2);
+		double omega = 2 * M_PI * i;
+		double omega2 = omega * omega;
+		double reFilter = omegac2 / (omegac2 + omega2);
+		double imFilter = -omega * omegac / (omega2 + omegac2);
 		double reI = re[i];
 		double imI = im[i];
 		double reNI = re[N - i];
@@ -280,24 +280,21 @@ void Signal::delay(double n) {
 }
 
 void Signal::filter_butterworth(double fc) {
-	int i;
-	double alpha, alpha2, alpha3;
-	double a, b, c, d;
-	alpha = M_PI * fc / FREQ_ECHANTILLONNAGE;
-	alpha2 = pow(alpha, 2.0);
-	alpha3 = pow(alpha2, 2.0);
-	a = 1.0 + 2.0 * alpha + 2.0 * alpha2 + alpha3;
-	b = -3.0 - (2.0 * alpha) + 2.0 * alpha2 + 3.0 * alpha3;
-	c = 3.0 - (2.0 * alpha) - (2.0 * alpha2) + 3.0 * alpha3;
-	d = -1.0 + 2.0 * alpha - (2.0 * alpha2) + alpha3;
-	/*Output[0] = Input[0];
-	Output[1] = Input[1];
-	Output[2] = Input[2];
-
-	for(i = 3; i < N; i++){
-		Output[i] = (-(im * Output[i-1]) - (c * Output[i-2]) - (d * Output[i-3]) +
-				alpha3 * (Input[i] + 3.0 * Input[i-1] + 3.0 * Input[i-2] + Input[i-3])) / re;
-	}*/
+	double alpha = M_PI * fc / FREQ_ECHANTILLONNAGE;
+	double alpha2 = alpha*alpha;
+	double alpha3 = alpha2*alpha;
+	double a = 1 + 2*alpha + 2*alpha2 + alpha3;
+	double b = -3 - 2*alpha + 2*alpha2 + 3*alpha3;
+	double c = 3 - 2*alpha - 2*alpha2 + 3*alpha3;
+	double d = -1 + 2*alpha - 2*alpha2 + alpha3;
+	Signal sicopy = Signal(*this);
+	signal[0] = 0;
+	signal[1] = 0;
+	signal[2] = 0;
+	for (int i = 3; i < N; ++i) {
+		signal[i] = (alpha3 * (sicopy.signal[i-3] + 3*sicopy.signal[i-2] + 3*sicopy.signal[i-1] + sicopy.signal[i])
+				- b*signal[i-1] - c*signal[i-2] - d*signal[i-3]) / a;
+	}
 }
 
 void Signal::transposition(double i) {
@@ -305,12 +302,10 @@ void Signal::transposition(double i) {
 	std::vector<double> recopy = re;
 	std::vector<double> imcopy = im;
 	double t = pow(2.0, i/12.0); // (2**(1/12))**i = 2**(1/12*i) = 2**(i/12); voir Tone.cpp:incrementSemiTone
-	for (int j = 0; j < N/2; ++j) {
-		int h = (int) (j * t) % (N % 2);
+	for (int j = 0; j < N / 2; ++j) {
+		int h = (int) (j * t) % (N / 2);
 		re[j] = recopy[h];
-		re[N - j] = recopy[N - h];
 		im[j] = imcopy[h];
-		im[N - j] = imcopy[N - h];
 	}
 	fft(-1);
 }

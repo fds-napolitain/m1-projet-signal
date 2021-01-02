@@ -96,5 +96,6 @@ int main() {
 //	verifDft();
 //	doMajeur();
 	fftFilters();
+	temporalFilters();
 	return 0;
 }
