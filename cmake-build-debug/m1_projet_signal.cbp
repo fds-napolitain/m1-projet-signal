@@ -86,43 +86,43 @@
 		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Effects.cpp">
 			<Option target="m1_projet_signal"/>
 		</Unit>
-		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Effects.h">
+		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Effects.hpp">
 			<Option target="m1_projet_signal"/>
 		</Unit>
 		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Instrument.cpp">
 			<Option target="m1_projet_signal"/>
 		</Unit>
-		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Instrument.h">
+		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Instrument.hpp">
 			<Option target="m1_projet_signal"/>
 		</Unit>
 		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Signal.cpp">
 			<Option target="m1_projet_signal"/>
 		</Unit>
-		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Signal.h">
+		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Signal.hpp">
 			<Option target="m1_projet_signal"/>
 		</Unit>
 		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Tone.cpp">
 			<Option target="m1_projet_signal"/>
 		</Unit>
-		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Tone.h">
+		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Tone.hpp">
 			<Option target="m1_projet_signal"/>
 		</Unit>
 		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Track.cpp">
 			<Option target="m1_projet_signal"/>
 		</Unit>
-		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Track.h">
+		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/Track.hpp">
 			<Option target="m1_projet_signal"/>
 		</Unit>
 		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/utils/Wave.cpp">
 			<Option target="m1_projet_signal"/>
 		</Unit>
-		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/utils/Wave.h">
+		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/utils/Wave.hpp">
 			<Option target="m1_projet_signal"/>
 		</Unit>
 		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/utils/utils.cpp">
 			<Option target="m1_projet_signal"/>
 		</Unit>
-		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/utils/utils.h">
+		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/src/utils/utils.hpp">
 			<Option target="m1_projet_signal"/>
 		</Unit>
 		<Unit filename="/Users/napolitain/Development/CLionProjects/m1-projet-signal/CMakeLists.txt">

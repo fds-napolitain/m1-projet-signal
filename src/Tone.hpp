@@ -1,5 +1,5 @@
-#ifndef M1_PROJET_SIGNAL_TONE_H
-#define M1_PROJET_SIGNAL_TONE_H
+#ifndef M1_PROJET_SIGNAL_TONE_HPP
+#define M1_PROJET_SIGNAL_TONE_HPP
 
 #include <vector>
 
@@ -25,4 +25,4 @@ public:
 
 typedef std::vector<Tone> Tones;
 
-#endif //M1_PROJET_SIGNAL_TONE_H
+#endif //M1_PROJET_SIGNAL_TONE_HPP

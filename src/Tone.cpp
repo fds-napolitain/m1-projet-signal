@@ -1,5 +1,5 @@
 #include <cmath>
-#include "Tone.h"
+#include "Tone.hpp"
 
 Tone::Tone(char *tone) {
 	frequency = 440.0;

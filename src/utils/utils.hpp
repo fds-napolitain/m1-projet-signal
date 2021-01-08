@@ -1,5 +1,5 @@
-#ifndef M1_PROJET_SIGNAL_UTILS_H
-#define M1_PROJET_SIGNAL_UTILS_H
+#ifndef M1_PROJET_SIGNAL_UTILS_HPP
+#define M1_PROJET_SIGNAL_UTILS_HPP
 
 #define FREQ_A4 440.0
 
@@ -17,4 +17,4 @@ unsigned char normalize(double signal);
  */
 void Normalisation(double *signal, int N);
 
-#endif //M1_PROJET_SIGNAL_UTILS_H
+#endif //M1_PROJET_SIGNAL_UTILS_HPP

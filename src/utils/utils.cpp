@@ -1,6 +1,6 @@
 #include <math.h>
 #include <cstdio>
-#include "utils.h"
+#include "utils.hpp"
 
 unsigned char normalize(double signal) {
 	return (signal + 1.0) * 127.5;

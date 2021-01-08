@@ -5,7 +5,7 @@
 
 using namespace std;
 
-#include "Wave.h"
+#include "Wave.hpp"
 
 Wave::Wave() {
 	//Vérifi que tout est correct pour la taille des types

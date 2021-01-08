@@ -1,9 +1,9 @@
 #include <math.h>
 #include <iostream>
 #include <functional>
-#include "Signal.h"
-#include "utils/Wave.h"
-#include "utils/utils.h"
+#include "Signal.hpp"
+#include "utils/Wave.hpp"
+#include "utils/utils.hpp"
 
 Signal::Signal(char *path) {
 	unsigned char* data8;
@@ -287,12 +287,12 @@ void Signal::filter_butterworth(double fc) {
 	double b = -3 - 2*alpha + 2*alpha2 + 3*alpha3;
 	double c = 3 - 2*alpha - 2*alpha2 + 3*alpha3;
 	double d = -1 + 2*alpha - 2*alpha2 + alpha3;
-	Signal sicopy = Signal(*this);
-	signal[0] = 0;
-	signal[1] = 0;
-	signal[2] = 0;
+	std::vector<double> sicopy = signal;
+	signal[0] = sicopy[0];
+	signal[1] = sicopy[1];
+	signal[2] = sicopy[2];
 	for (int i = 3; i < N; ++i) {
-		signal[i] = (alpha3 * (sicopy.signal[i-3] + 3*sicopy.signal[i-2] + 3*sicopy.signal[i-1] + sicopy.signal[i])
+		signal[i] = (alpha3 * (sicopy[i-3] + 3*sicopy[i-2] + 3*sicopy[i-1] + sicopy[i])
 				- b*signal[i-1] - c*signal[i-2] - d*signal[i-3]) / a;
 	}
 }

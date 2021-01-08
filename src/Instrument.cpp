@@ -2,12 +2,12 @@
 // Created by Maxime Boucher on 03/12/2020.
 //
 
-#include "Instrument.h"
+#include "Instrument.hpp"
 
 
 Instrument::Instrument() {
 }
 
 void Instrument::addInstrument(char* name, char* expression) {
-	instruments.insert(make_pair(name, expression));
+	instruments.insert(std::make_pair(name, expression));
 }

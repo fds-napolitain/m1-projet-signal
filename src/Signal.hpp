@@ -1,8 +1,8 @@
-#ifndef M1_PROJET_SIGNAL_SIGNAL_H
-#define M1_PROJET_SIGNAL_SIGNAL_H
+#ifndef M1_PROJET_SIGNAL_SIGNAL_HPP
+#define M1_PROJET_SIGNAL_SIGNAL_HPP
 
 #include <vector>
-#include "Tone.h"
+#include "Tone.hpp"
 
 class Signal {
 public:
@@ -141,4 +141,4 @@ public:
 };
 
 
-#endif //M1_PROJET_SIGNAL_SIGNAL_H
+#endif //M1_PROJET_SIGNAL_SIGNAL_HPP

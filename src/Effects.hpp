@@ -1,8 +1,8 @@
-#ifndef M1_PROJET_SIGNAL_EFFECTS_H
-#define M1_PROJET_SIGNAL_EFFECTS_H
+#ifndef M1_PROJET_SIGNAL_EFFECTS_HPP
+#define M1_PROJET_SIGNAL_EFFECTS_HPP
 
 
-#include "Signal.h"
+#include "Signal.hpp"
 
 class Effects {
 public:
@@ -15,4 +15,4 @@ public:
 };
 
 
-#endif //M1_PROJET_SIGNAL_EFFECTS_H
+#endif //M1_PROJET_SIGNAL_EFFECTS_HPP

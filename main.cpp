@@ -1,9 +1,9 @@
 #include <iostream>
 #include <math.h>
-#include "src/Signal.h"
-#include "src/utils/utils.h"
-#include "src/Tone.h"
-#include "src/Effects.h"
+#include "src/Signal.hpp"
+#include "src/utils/utils.hpp"
+#include "src/Tone.hpp"
+#include "src/Effects.hpp"
 
 using namespace std;
 
